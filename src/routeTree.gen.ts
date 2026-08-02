@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PedidoDeOracaoRouteImport } from './routes/pedido-de-oracao'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as VisiteNosRouteImport } from './routes/visite-nos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidoDeOracaoRoute = PedidoDeOracaoRouteImport.update({
+  id: '/pedido-de-oracao',
+  path: '/pedido-de-oracao',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -31,30 +37,34 @@ const VisiteNosRoute = VisiteNosRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/pedido-de-oracao': typeof PedidoDeOracaoRoute
   '/sobre': typeof SobreRoute
   '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/pedido-de-oracao': typeof PedidoDeOracaoRoute
   '/sobre': typeof SobreRoute
   '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/pedido-de-oracao': typeof PedidoDeOracaoRoute
   '/sobre': typeof SobreRoute
   '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sobre' | '/visite-nos'
+  fullPaths: '/' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sobre' | '/visite-nos'
-  id: '__root__' | '/' | '/sobre' | '/visite-nos'
+  to: '/' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
+  id: '__root__' | '/' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PedidoDeOracaoRoute: typeof PedidoDeOracaoRoute
   SobreRoute: typeof SobreRoute
   VisiteNosRoute: typeof VisiteNosRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedido-de-oracao': {
+      id: '/pedido-de-oracao'
+      path: '/pedido-de-oracao'
+      fullPath: '/pedido-de-oracao'
+      preLoaderRoute: typeof PedidoDeOracaoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PedidoDeOracaoRoute: PedidoDeOracaoRoute,
   SobreRoute: SobreRoute,
   VisiteNosRoute: VisiteNosRoute,
 }
