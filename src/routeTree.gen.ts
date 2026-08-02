@@ -10,33 +10,79 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as PedidoDeOracaoRouteImport } from './routes/pedido-de-oracao'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as VisiteNosRouteImport } from './routes/visite-nos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidoDeOracaoRoute = PedidoDeOracaoRouteImport.update({
+  id: '/pedido-de-oracao',
+  path: '/pedido-de-oracao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisiteNosRoute = VisiteNosRouteImport.update({
+  id: '/visite-nos',
+  path: '/visite-nos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/pedido-de-oracao': typeof PedidoDeOracaoRoute
+  '/sobre': typeof SobreRoute
+  '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/pedido-de-oracao': typeof PedidoDeOracaoRoute
+  '/sobre': typeof SobreRoute
+  '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/pedido-de-oracao': typeof PedidoDeOracaoRoute
+  '/sobre': typeof SobreRoute
+  '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/contato' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contato' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/pedido-de-oracao'
+    | '/sobre'
+    | '/visite-nos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  PedidoDeOracaoRoute: typeof PedidoDeOracaoRoute
+  SobreRoute: typeof SobreRoute
+  VisiteNosRoute: typeof VisiteNosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +94,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedido-de-oracao': {
+      id: '/pedido-de-oracao'
+      path: '/pedido-de-oracao'
+      fullPath: '/pedido-de-oracao'
+      preLoaderRoute: typeof PedidoDeOracaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/visite-nos': {
+      id: '/visite-nos'
+      path: '/visite-nos'
+      fullPath: '/visite-nos'
+      preLoaderRoute: typeof VisiteNosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  PedidoDeOracaoRoute: PedidoDeOracaoRoute,
+  SobreRoute: SobreRoute,
+  VisiteNosRoute: VisiteNosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
