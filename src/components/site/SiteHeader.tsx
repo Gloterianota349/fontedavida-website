@@ -16,15 +16,15 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" className="flex items-center" aria-label={CHURCH.name}>
           <img
             src={logo.url}
             alt={`Logo da ${CHURCH.name}`}
-            width={220}
-            height={73}
-            className="h-11 w-auto md:h-12"
+            width={561}
+            height={129}
+            className="h-14 w-auto md:h-16"
           />
         </Link>
 
@@ -34,8 +34,8 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              activeProps={{ className: "text-primary" }}
-              className="rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wide text-foreground transition-colors hover:text-primary"
+              activeProps={{ className: "text-primary after:scale-x-100" }}
+              className="meta relative rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-foreground transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-primary hover:after:scale-x-100"
             >
               {item.label}
             </Link>
@@ -43,12 +43,13 @@ export function SiteHeader() {
           <a
             href={CHURCH.whatsapp}
             target="_blank"
-            rel="noreferrer"
-            className="ml-2 inline-flex min-h-11 items-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
+            rel="noopener noreferrer"
+            className="meta ml-3 inline-flex min-h-11 items-center rounded-md bg-primary px-5 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary-deep"
           >
             WhatsApp
           </a>
         </nav>
+
 
         <button
           type="button"
