@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Clock, Phone, Youtube, HeartHandshake, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-culto.jpg";
 import { CHURCH, SERVICES } from "@/lib/church";
 
 export const Route = createFileRoute("/")({
@@ -51,7 +50,7 @@ function Home() {
     <>
       <section className="relative isolate overflow-hidden">
         <img
-          src={heroImg}
+          src="/hero-culto.jpg"
           alt="Congregação em momento de louvor durante o culto"
           width={1920}
           height={1080}
