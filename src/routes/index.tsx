@@ -160,7 +160,7 @@ function Home() {
             </Link>
           </div>
           <div className="md:col-span-5">
-            <div className="card-lift h-full rounded-lg border border-border bg-secondary p-7">
+            <div className="card-lift rounded-lg border border-border bg-secondary p-7">
               <h3 className="text-2xl font-bold uppercase text-primary-deep">Primeira vez aqui?</h3>
               <p className="mt-4 text-sm text-muted-foreground">
                 Chegue alguns minutos antes, venha como estiver e procure alguém da recepção. Vamos te
