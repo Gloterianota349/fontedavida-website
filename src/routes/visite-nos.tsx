@@ -93,7 +93,7 @@ function VisitPage() {
             <a
               href={CHURCH.mapsDirections}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="mt-4 inline-flex min-h-11 items-center rounded-md bg-primary px-6 font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
             >
               Como chegar
