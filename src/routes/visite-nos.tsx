@@ -40,6 +40,18 @@ const EXPECTATIONS = [
     title: "Idioma",
     text: "Todos os nossos cultos são em português.",
   },
+  {
+    title: "Estacionamento",
+    text: "Temos estacionamento no próprio local, sem custo para os visitantes.",
+  },
+  {
+    title: "Transporte público (TTC)",
+    text: "O ponto de ônibus mais próximo é Caledonia Rd at Lawrence Ave West, a poucos passos da entrada.",
+  },
+  {
+    title: "Acessibilidade",
+    text: "O prédio ainda não é acessível para cadeirantes. Se você precisa de apoio para entrar, avise no WhatsApp e nossa equipe ajuda na chegada.",
+  },
 ];
 
 const FAQ = [
