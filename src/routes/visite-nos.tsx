@@ -76,10 +76,24 @@ const FAQ = [
 function VisitPage() {
   return (
     <>
-      <section className="bg-primary-deep">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <h1 className="text-4xl font-bold uppercase text-primary-foreground md:text-5xl">Visite-nos</h1>
-          <p className="mt-3 max-w-2xl text-lg text-accent">
+      <section className="relative isolate overflow-hidden">
+        <img
+          src="/img-fachada.jpg"
+          alt="Fachada do prédio da igreja em North York"
+          width={1280}
+          height={853}
+          className="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-deep/95 via-primary-deep/85 to-primary-deep/50"
+          aria-hidden
+        />
+        <div className="mx-auto max-w-6xl px-4 py-24">
+          <p className="eyebrow text-accent">Sua primeira visita</p>
+          <h1 className="mt-5 text-5xl font-bold uppercase text-primary-foreground md:text-6xl">
+            Visite-nos
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-accent">
             Você é nosso convidado. Aqui está tudo o que precisa saber antes de vir pela primeira vez.
           </p>
         </div>
