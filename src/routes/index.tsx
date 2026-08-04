@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Clock, Phone, Youtube, HeartHandshake, ArrowRight } from "lucide-react";
 import { CHURCH, SERVICES } from "@/lib/church";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
