@@ -76,10 +76,24 @@ const FAQ = [
 function VisitPage() {
   return (
     <>
-      <section className="bg-primary-deep">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <h1 className="text-4xl font-bold uppercase text-primary-foreground md:text-5xl">Visite-nos</h1>
-          <p className="mt-3 max-w-2xl text-lg text-accent">
+      <section className="relative isolate overflow-hidden">
+        <img
+          src="/img-fachada.jpg"
+          alt="Fachada do prédio da igreja em North York"
+          width={1280}
+          height={853}
+          className="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-deep/95 via-primary-deep/85 to-primary-deep/50"
+          aria-hidden
+        />
+        <div className="mx-auto max-w-6xl px-4 py-24">
+          <p className="eyebrow text-accent">Sua primeira visita</p>
+          <h1 className="mt-5 text-5xl font-bold uppercase text-primary-foreground md:text-6xl">
+            Visite-nos
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-accent">
             Você é nosso convidado. Aqui está tudo o que precisa saber antes de vir pela primeira vez.
           </p>
         </div>
@@ -123,11 +137,37 @@ function VisitPage() {
 
       <section className="section-y bg-secondary">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-2xl font-bold uppercase text-primary-deep">O que esperar</h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            <img
+              src="/img-recepcao.jpg"
+              alt="Equipe recebendo visitantes na entrada da igreja"
+              width={1280}
+              height={853}
+              loading="lazy"
+              className="aspect-4/3 w-full rounded-lg border border-border object-cover"
+            />
+            <img
+              src="/img-louvor.jpg"
+              alt="Momento de louvor durante o culto"
+              width={1280}
+              height={853}
+              loading="lazy"
+              className="aspect-4/3 w-full rounded-lg border border-border object-cover"
+            />
+            <img
+              src="/img-comunidade.jpg"
+              alt="Pessoas conversando após o culto"
+              width={1280}
+              height={853}
+              loading="lazy"
+              className="aspect-4/3 w-full rounded-lg border border-border object-cover"
+            />
+          </div>
+          <h2 className="mt-14 text-3xl font-bold uppercase text-primary-deep">O que esperar</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {EXPECTATIONS.map((item) => (
-              <li key={item.title} className="rounded-lg border border-border bg-background p-5">
-                <h3 className="text-lg font-bold text-primary-deep">{item.title}</h3>
+              <li key={item.title} className="card-lift rounded-lg border border-border bg-background p-5">
+                <h3 className="text-lg font-bold uppercase text-primary-deep">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{item.text}</p>
               </li>
             ))}

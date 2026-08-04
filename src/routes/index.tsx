@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Clock, Phone, Youtube, HeartHandshake, ArrowRight } from "lucide-react";
 import { CHURCH, SERVICES } from "@/lib/church";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,7 +138,7 @@ function Home() {
 
       <section className="section-y">
         <div className="mx-auto grid max-w-6xl gap-14 px-4 md:grid-cols-12">
-          <div className="md:col-span-7">
+          <Reveal direction="left" className="md:col-span-7">
             <p className="eyebrow text-primary">Quem somos</p>
             <h2 className="mt-5 max-w-lg text-4xl font-bold uppercase text-primary-deep md:text-5xl">
               Uma família brasileira de fé em Toronto
@@ -151,6 +152,14 @@ function Home() {
               Nossos encontros são simples e acolhedores: louvor, oração e uma palavra que faz sentido para
               a vida real. Não importa em que ponto da jornada você esteja, aqui há lugar para você.
             </p>
+            <img
+              src="/img-comunidade.jpg"
+              alt="Pessoas conversando e sorrindo após o culto"
+              width={1280}
+              height={853}
+              loading="lazy"
+              className="mt-8 aspect-16/9 w-full rounded-lg border border-border object-cover"
+            />
             <Link
               to="/sobre"
               className="meta group mt-8 inline-flex min-h-11 items-center gap-2 border-b border-primary pb-1 text-sm font-semibold uppercase tracking-[0.12em] text-primary"
@@ -158,9 +167,17 @@ function Home() {
               Conheça nossa história
               <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
-          </div>
-          <div className="md:col-span-5">
-            <div className="card-lift rounded-lg border border-border bg-secondary p-7">
+          </Reveal>
+          <Reveal direction="right" delay={120} className="md:col-span-5">
+            <img
+              src="/img-recepcao.jpg"
+              alt="Equipe recebendo famílias na entrada da igreja"
+              width={1280}
+              height={853}
+              loading="lazy"
+              className="aspect-4/5 w-full rounded-lg border border-border object-cover"
+            />
+            <div className="card-lift mt-6 rounded-lg border border-border bg-secondary p-7">
               <h3 className="text-2xl font-bold uppercase text-primary-deep">Primeira vez aqui?</h3>
               <p className="mt-4 text-sm text-muted-foreground">
                 Chegue alguns minutos antes, venha como estiver e procure alguém da recepção. Vamos te
@@ -173,27 +190,32 @@ function Home() {
                 O que esperar da sua visita →
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-y bg-secondary" aria-labelledby="cultos">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="eyebrow text-primary">Agenda semanal</p>
-              <h2 id="cultos" className="mt-5 text-4xl font-bold uppercase text-primary-deep md:text-5xl">
-                Nossos cultos
-              </h2>
+          <Reveal direction="up">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="eyebrow text-primary">Agenda semanal</p>
+                <h2 id="cultos" className="mt-5 text-4xl font-bold uppercase text-primary-deep md:text-5xl">
+                  Nossos cultos
+                </h2>
+              </div>
+              <p className="meta text-sm uppercase tracking-[0.14em] text-muted-foreground">
+                Todos em português
+              </p>
             </div>
-            <p className="meta text-sm uppercase tracking-[0.14em] text-muted-foreground">
-              Todos em português
-            </p>
-          </div>
+          </Reveal>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICES.map((s, i) => (
-              <li
+              <Reveal
                 key={s.title}
+                as="li"
+                direction={i % 2 === 0 ? "left" : "right"}
+                delay={i * 80}
                 className="card-lift rounded-lg border border-border bg-background p-6"
               >
                 <span className="meta text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -205,29 +227,69 @@ function Home() {
                 <p className="font-display text-3xl font-bold text-primary-deep">{s.time}</p>
                 <h3 className="mt-3 text-lg font-bold uppercase text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.description}</p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="section-y">
-        <div className="mx-auto max-w-4xl border-y border-border px-6 py-14 text-center">
-          <HeartHandshake aria-hidden className="mx-auto size-9 text-primary" />
-          <h2 className="mt-6 text-4xl font-bold uppercase text-primary-deep">
-            Podemos orar por você
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Seja qual for a sua situação, nossa equipe de intercessão quer orar pelo seu nome. Seu pedido
-            pode ser mantido em sigilo.
-          </p>
-          <Link
-            to="/pedido-de-oracao"
-            className="meta group mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-primary px-7 text-sm font-semibold uppercase tracking-[0.12em] text-primary-foreground transition-colors hover:bg-primary-deep"
-          >
-            Quero oração
-            <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+      <section className="section-y" aria-labelledby="galeria">
+        <div className="mx-auto max-w-6xl px-4">
+          <Reveal direction="up">
+            <p className="eyebrow text-primary">Nossa comunidade</p>
+            <h2 id="galeria" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
+              Momentos da igreja
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {[
+              { src: "/img-louvor.jpg", alt: "Banda de louvor conduzindo o culto", dir: "left" as const },
+              { src: "/img-grupo.jpg", alt: "Grupo pequeno reunido com Bíblias abertas", dir: "up" as const },
+              { src: "/img-oracao.jpg", alt: "Duas pessoas orando juntas", dir: "right" as const },
+            ].map((img, i) => (
+              <Reveal key={img.src} direction={img.dir} delay={i * 100}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  width={1280}
+                  height={853}
+                  loading="lazy"
+                  className="aspect-4/3 w-full rounded-lg border border-border object-cover transition-transform duration-500 hover:scale-[1.02]"
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative isolate overflow-hidden">
+        <img
+          src="/img-oracao.jpg"
+          alt="Mãos unidas em oração"
+          width={1280}
+          height={853}
+          loading="lazy"
+          className="absolute inset-0 -z-10 size-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-primary-deep/85" aria-hidden />
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <Reveal direction="up">
+            <HeartHandshake aria-hidden className="mx-auto size-9 text-accent" />
+            <h2 className="mt-6 text-4xl font-bold uppercase text-primary-foreground">
+              Podemos orar por você
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-accent">
+              Seja qual for a sua situação, nossa equipe de intercessão quer orar pelo seu nome. Seu pedido
+              pode ser mantido em sigilo.
+            </p>
+            <Link
+              to="/pedido-de-oracao"
+              className="meta group mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-primary-foreground px-7 text-sm font-semibold uppercase tracking-[0.12em] text-primary-deep transition-opacity hover:opacity-90"
+            >
+              Quero oração
+              <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
