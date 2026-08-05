@@ -25,12 +25,12 @@ export const Route = createFileRoute("/sobre")({
 });
 
 const VALUES = [
-  { title: "Acolhimento", text: "Cada pessoa que entra é recebida como parte da família.", Icon: HandHeart },
-  { title: "Palavra", text: "A Bíblia é nosso fundamento para a fé e para a vida.", Icon: BookOpen },
-  { title: "Oração", text: "Cremos que Deus ouve e responde.", Icon: Flame },
-  { title: "Família", text: "Cuidamos de casais, crianças, jovens e idosos.", Icon: Users },
-  { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", Icon: Heart },
-  { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", Icon: Compass },
+  { title: "Acolhimento", text: "Cada pessoa que entra é recebida como parte da família.", img: "/img-recepcao.jpg", alt: "Equipe de recepção acolhendo visitantes" },
+  { title: "Palavra", text: "A Bíblia é nosso fundamento para a fé e para a vida.", img: "/img-biblia.jpg", alt: "Bíblia aberta sobre a mesa" },
+  { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-oracao.jpg", alt: "Mãos unidas em oração" },
+  { title: "Família", text: "Cuidamos de casais, crianças, jovens e idosos.", img: "/img-comunidade.jpg", alt: "Famílias reunidas na igreja" },
+  { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", img: "/img-grupo.jpg", alt: "Grupo servindo e estudando junto" },
+  { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", img: "/img-toronto.jpg", alt: "Vista da cidade de Toronto" },
 ];
 
 function AboutPage() {
@@ -161,12 +161,27 @@ function AboutPage() {
                 key={v.title}
                 as="li"
                 direction={i % 2 === 0 ? "left" : "right"}
-                delay={i * 60}
-                className="card-lift rounded-lg border border-border bg-background p-6"
+                delay={i * 70}
+                className="card-lift group overflow-hidden rounded-lg border border-border bg-background"
               >
-                <v.Icon aria-hidden className="size-6 text-primary" />
-                <h3 className="mt-4 text-xl font-bold uppercase text-primary-deep">{v.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{v.text}</p>
+                <div className="relative aspect-16/10 overflow-hidden">
+                  <img
+                    src={v.img}
+                    alt={v.alt}
+                    width={1280}
+                    height={853}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-primary-deep/75 to-transparent"
+                    aria-hidden
+                  />
+                  <h3 className="absolute bottom-4 left-5 text-xl font-bold uppercase text-primary-foreground">
+                    {v.title}
+                  </h3>
+                </div>
+                <p className="p-6 text-sm text-muted-foreground">{v.text}</p>
               </Reveal>
             ))}
           </ul>
