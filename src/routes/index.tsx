@@ -232,9 +232,6 @@ function Home() {
                     className="absolute inset-0 bg-gradient-to-t from-primary-deep/80 via-primary-deep/10 to-transparent"
                     aria-hidden
                   />
-                  <span className="meta absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1 text-xs uppercase tracking-[0.2em] text-primary-deep">
-                    0{i + 1}
-                  </span>
                   <div className="absolute bottom-4 left-4">
                     <p className="meta text-xs font-semibold uppercase tracking-[0.16em] text-accent">
                       {s.day}
