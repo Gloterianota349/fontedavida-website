@@ -100,7 +100,7 @@ function Home() {
       </section>
 
       <section className="border-b border-border bg-secondary" aria-label="Informações rápidas">
-        <div className="mx-auto grid max-w-6xl gap-px bg-border px-4 py-0 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
           <QuickInfo icon={<MapPin aria-hidden className="size-5" />} title="Endereço">
             <a
               href={CHURCH.mapsDirections}
