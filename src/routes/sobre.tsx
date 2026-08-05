@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
-import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
