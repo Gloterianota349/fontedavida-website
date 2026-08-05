@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BookOpen, Compass, Flame, HandHeart, Heart, Users } from "lucide-react";
+import { Reveal } from "@/components/site/Reveal";
 import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/sobre")({
