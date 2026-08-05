@@ -99,7 +99,7 @@ function VisitPage() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="pb-[5.5rem] pt-10">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold uppercase text-primary-deep">Onde e quando</h2>

@@ -60,7 +60,7 @@ function AboutPage() {
       </section>
 
       {/* História */}
-      <section className="section-y" aria-labelledby="historia">
+      <section className="pb-[5.5rem] pt-10" aria-labelledby="historia">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left">
             <p className="eyebrow text-primary">01 · Origem</p>
@@ -163,7 +163,7 @@ function AboutPage() {
                 delay={i * 70}
                 className="card-lift group overflow-hidden rounded-lg border border-border bg-background"
               >
-                <div className="relative aspect-16/10 overflow-hidden">
+                <div className="relative h-24 overflow-hidden">
                   <img
                     src={v.img}
                     alt={v.alt}

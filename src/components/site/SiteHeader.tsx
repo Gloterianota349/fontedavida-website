@@ -24,7 +24,7 @@ export function SiteHeader() {
             alt={`Logo da ${CHURCH.name}`}
             width={561}
             height={129}
-            className="h-14 w-auto md:h-16"
+            className="h-11 w-auto md:h-13"
           />
         </Link>
 

@@ -100,7 +100,7 @@ function Home() {
       </section>
 
       <section className="border-b border-border bg-secondary" aria-label="Informações rápidas">
-        <div className="mx-auto grid max-w-6xl gap-px bg-border px-4 py-0 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
           <QuickInfo icon={<MapPin aria-hidden className="size-5" />} title="Endereço">
             <a
               href={CHURCH.mapsDirections}
@@ -137,7 +137,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="pb-[5.5rem] pt-12">
         <div className="mx-auto grid max-w-6xl gap-14 px-4 md:grid-cols-12">
           <Reveal direction="left" className="md:col-span-7">
             <p className="eyebrow text-primary">Quem somos</p>
@@ -232,9 +232,6 @@ function Home() {
                     className="absolute inset-0 bg-gradient-to-t from-primary-deep/80 via-primary-deep/10 to-transparent"
                     aria-hidden
                   />
-                  <span className="meta absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1 text-xs uppercase tracking-[0.2em] text-primary-deep">
-                    0{i + 1}
-                  </span>
                   <div className="absolute bottom-4 left-4">
                     <p className="meta text-xs font-semibold uppercase tracking-[0.16em] text-accent">
                       {s.day}
@@ -337,7 +334,7 @@ function QuickInfo({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex gap-3 bg-secondary px-2 py-8">
+    <div className="flex gap-3 bg-secondary px-4 pb-8 pt-5">
       <span className="mt-0.5 text-primary">{icon}</span>
       <div>
         <h2 className="meta text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
