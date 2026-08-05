@@ -337,7 +337,7 @@ function QuickInfo({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex gap-3 bg-secondary px-2 py-8">
+    <div className="flex gap-3 bg-secondary px-4 pb-8 pt-5">
       <span className="mt-0.5 text-primary">{icon}</span>
       <div>
         <h2 className="meta text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
