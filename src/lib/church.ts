@@ -21,6 +21,8 @@ export type Service = {
   time: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
 };
 
 export const SERVICES: Service[] = [
@@ -30,6 +32,8 @@ export const SERVICES: Service[] = [
     title: "Culto da Família",
     description:
       "Nosso principal encontro da semana: louvor, palavra e comunhão para toda a família.",
+    image: "/img-comunidade.jpg",
+    imageAlt: "Famílias reunidas no culto de domingo",
   },
   {
     day: "Terça-feira",
@@ -37,6 +41,8 @@ export const SERVICES: Service[] = [
     title: "Encontro de Mulheres",
     description:
       "Um tempo de oração, edificação e amizade entre as mulheres da igreja.",
+    image: "/img-oracao.jpg",
+    imageAlt: "Mulheres em momento de oração",
   },
   {
     day: "Quarta-feira",
@@ -44,6 +50,8 @@ export const SERVICES: Service[] = [
     title: "Quarta do Resgate",
     description:
       "Noite de fé, intercessão e restauração para quem precisa de um recomeço.",
+    image: "/img-biblia.jpg",
+    imageAlt: "Bíblia aberta durante a Quarta do Resgate",
   },
   {
     day: "Sexta-feira",
@@ -51,5 +59,7 @@ export const SERVICES: Service[] = [
     title: "Culto de Jovens e Adolescentes",
     description:
       "Louvor vibrante e palavra relevante para a nova geração da igreja.",
+    image: "/img-louvor.jpg",
+    imageAlt: "Jovens no momento de louvor",
   },
 ];
