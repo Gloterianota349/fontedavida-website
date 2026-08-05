@@ -137,7 +137,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="pb-[5.5rem] pt-12">
         <div className="mx-auto grid max-w-6xl gap-14 px-4 md:grid-cols-12">
           <Reveal direction="left" className="md:col-span-7">
             <p className="eyebrow text-primary">Quem somos</p>

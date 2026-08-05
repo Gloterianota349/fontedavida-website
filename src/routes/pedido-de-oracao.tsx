@@ -42,7 +42,7 @@ function PrayerPage() {
       phone: String(fd.get("phone") ?? ""),
       request: String(fd.get("request") ?? ""),
       isPrivate: fd.get("isPrivate") === "on",
-      urgency: fd.get("urgency") === "urgente" ? "urgente" : "normal",
+      urgency: "normal" as const,
     });
 
     if (!parsed.success) {
@@ -87,7 +87,7 @@ function PrayerPage() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="pb-[5.5rem] pt-10">
         <div className="mx-auto max-w-2xl px-4">
           {status === "sent" ? (
             <div className="rounded-lg border border-border bg-accent/40 p-8 text-center" role="status">
@@ -112,12 +112,6 @@ function PrayerPage() {
               </Field>
               <Field id="request" label="Seu pedido" error={errors['request']}>
                 <textarea id="request" name="request" rows={6} maxLength={2000} className={inputClass} />
-              </Field>
-              <Field id="urgency" label="Urgência" error={errors['urgency']}>
-                <select id="urgency" name="urgency" className={inputClass} defaultValue="normal">
-                  <option value="normal">Normal</option>
-                  <option value="urgente">Urgente</option>
-                </select>
               </Field>
               <label className="flex items-start gap-3 text-sm text-foreground">
                 <input type="checkbox" name="isPrivate" className="mt-1 size-4" />
