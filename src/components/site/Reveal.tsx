@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-type Direction = "left" | "right" | "up";
+type Direction = "left" | "right" | "up" | "down" | "none";
 
 const HIDDEN: Record<Direction, string> = {
-  left: "opacity-0 -translate-x-12",
-  right: "opacity-0 translate-x-12",
-  up: "opacity-0 translate-y-10",
+  left: "opacity-0 -translate-x-16 scale-[0.98] blur-[2px]",
+  right: "opacity-0 translate-x-16 scale-[0.98] blur-[2px]",
+  up: "opacity-0 translate-y-12 scale-[0.98] blur-[2px]",
+  down: "opacity-0 -translate-y-12 scale-[0.98] blur-[2px]",
+  none: "opacity-0 scale-[0.97] blur-[2px]",
 };
 
 /**
@@ -16,12 +18,14 @@ export function Reveal({
   children,
   direction = "up",
   delay = 0,
+  duration = 900,
   as: Tag = "div",
   className = "",
 }: {
   children: ReactNode;
   direction?: Direction;
   delay?: number;
+  duration?: number;
   as?: "div" | "section" | "li" | "article";
   className?: string;
 }) {
@@ -37,7 +41,7 @@ export function Reveal({
     }
     const observer = new IntersectionObserver(
       ([entry]) => setVisible(Boolean(entry?.isIntersecting)),
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.08, rootMargin: "-4% 0px -10% 0px" },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -46,9 +50,14 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out will-change-transform ${
-        visible ? "translate-x-0 translate-y-0 opacity-100" : HIDDEN[direction]
+      style={{
+        transitionDelay: `${visible ? delay : 0}ms`,
+        transitionDuration: `${duration}ms`,
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        transitionProperty: "opacity, transform, filter",
+      }}
+      className={`will-change-transform ${
+        visible ? "translate-x-0 translate-y-0 scale-100 opacity-100 blur-0" : HIDDEN[direction]
       } ${className}`}
     >
       {children}

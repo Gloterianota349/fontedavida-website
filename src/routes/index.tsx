@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Clock, Phone, Youtube, HeartHandshake, ArrowRight } from "lucide-react";
 import { CHURCH, SERVICES } from "@/lib/church";
 import { Reveal } from "@/components/site/Reveal";
+import { Carousel } from "@/components/site/Carousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -215,18 +216,36 @@ function Home() {
                 key={s.title}
                 as="li"
                 direction={i % 2 === 0 ? "left" : "right"}
-                delay={i * 80}
-                className="card-lift rounded-lg border border-border bg-background p-6"
+                delay={i * 90}
+                className="card-lift group overflow-hidden rounded-lg border border-border bg-background"
               >
-                <span className="meta text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  0{i + 1}
-                </span>
-                <p className="meta mt-4 text-sm font-semibold uppercase tracking-[0.14em] text-primary">
-                  {s.day}
-                </p>
-                <p className="font-display text-3xl font-bold text-primary-deep">{s.time}</p>
-                <h3 className="mt-3 text-lg font-bold uppercase text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.description}</p>
+                <div className="relative aspect-4/3 overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.imageAlt}
+                    width={1280}
+                    height={853}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-primary-deep/80 via-primary-deep/10 to-transparent"
+                    aria-hidden
+                  />
+                  <span className="meta absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1 text-xs uppercase tracking-[0.2em] text-primary-deep">
+                    0{i + 1}
+                  </span>
+                  <div className="absolute bottom-4 left-4">
+                    <p className="meta text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                      {s.day}
+                    </p>
+                    <p className="font-display text-3xl font-bold text-primary-foreground">{s.time}</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold uppercase text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.description}</p>
+                </div>
               </Reveal>
             ))}
           </ul>
@@ -241,24 +260,17 @@ function Home() {
               Momentos da igreja
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {[
-              { src: "/img-louvor.jpg", alt: "Banda de louvor conduzindo o culto", dir: "left" as const },
-              { src: "/img-grupo.jpg", alt: "Grupo pequeno reunido com Bíblias abertas", dir: "up" as const },
-              { src: "/img-oracao.jpg", alt: "Duas pessoas orando juntas", dir: "right" as const },
-            ].map((img, i) => (
-              <Reveal key={img.src} direction={img.dir} delay={i * 100}>
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  width={1280}
-                  height={853}
-                  loading="lazy"
-                  className="aspect-4/3 w-full rounded-lg border border-border object-cover transition-transform duration-500 hover:scale-[1.02]"
-                />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal direction="up" delay={80} className="mt-12 block">
+            <Carousel
+              slides={[
+                { src: "/img-louvor.jpg", alt: "Banda de louvor conduzindo o culto", caption: "Momento de louvor" },
+                { src: "/img-comunidade.jpg", alt: "Pessoas conversando após o culto", caption: "Comunhão após o culto" },
+                { src: "/img-grupo.jpg", alt: "Grupo pequeno reunido com Bíblias abertas", caption: "Grupos de estudo" },
+                { src: "/img-oracao.jpg", alt: "Duas pessoas orando juntas", caption: "Tempo de oração" },
+                { src: "/img-recepcao.jpg", alt: "Equipe recebendo famílias na entrada", caption: "Recepção e acolhimento" },
+              ]}
+            />
+          </Reveal>
         </div>
       </section>
 
