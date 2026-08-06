@@ -10,7 +10,18 @@ export type Slide = { src: string; alt: string; caption?: string };
 export function Carousel({ slides, interval = 4000 }: { slides: Slide[]; interval?: number }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [perView, setPerView] = useState(1);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    const compute = () => {
+      const w = window.innerWidth;
+      setPerView(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, []);
 
   const go = useCallback(
     (next: number) => setIndex((next + slides.length) % slides.length),
@@ -25,7 +36,7 @@ export function Carousel({ slides, interval = 4000 }: { slides: Slide[]; interva
     };
   }, [paused, interval, slides.length]);
 
-  // Duplicate the list so the track can slide continuously.
+  // Duplicate the list so the track can slide continuously and always fill the view.
   const track = [...slides, ...slides];
 
   return (
@@ -42,14 +53,15 @@ export function Carousel({ slides, interval = 4000 }: { slides: Slide[]; interva
       <div className="overflow-hidden rounded-lg">
         <ul
           className="flex transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateX(-${index * 100}%)` }}
+          style={{ transform: `translateX(-${(index * 100) / perView}%)` }}
         >
           {track.map((slide, i) => (
             <li
               key={slide.src + i}
               className="w-full shrink-0 px-1.5 sm:w-1/2 lg:w-1/3"
-              aria-hidden={i < index || i > index + 2}
+              aria-hidden={i < index || i >= index + perView}
             >
+
               <figure className="relative overflow-hidden rounded-lg border border-border bg-secondary">
                 <img
                   src={slide.src}
