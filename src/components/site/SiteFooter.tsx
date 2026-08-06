@@ -52,8 +52,9 @@ export function SiteFooter({ variant = "full" }: { variant?: "full" | "minimal" 
           </a>
         </div>
       </div>
+      ) : null}
 
-      <div className="border-t border-border">
+      <div className={variant === "full" ? "border-t border-border" : ""}>
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {CHURCH.name}
