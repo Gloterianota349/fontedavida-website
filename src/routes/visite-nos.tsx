@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CHURCH, SERVICES } from "@/lib/church";
+import { Carousel } from "@/components/site/Carousel";
 
 export const Route = createFileRoute("/visite-nos")({
   head: () => ({
@@ -23,34 +24,73 @@ export const Route = createFileRoute("/visite-nos")({
   component: VisitPage,
 });
 
-const EXPECTATIONS = [
+const EXPECTATIONS: { title: string; text: React.ReactNode }[] = [
   {
     title: "Como é o culto",
-    text: "Começamos com louvor, seguimos com um tempo de oração e uma mensagem bíblica prática. Ao final, alguém da equipe estará disponível para conversar e orar com você.",
+    text: (
+      <>
+        Começamos com <strong className="font-semibold text-foreground">louvor</strong>, seguimos com um
+        tempo de <strong className="font-semibold text-foreground">oração</strong> e uma{" "}
+        <strong className="font-semibold text-foreground">mensagem bíblica prática</strong>. Ao final,
+        alguém da equipe estará disponível para conversar e orar com você.
+      </>
+    ),
   },
   {
     title: "Quanto tempo dura",
-    text: "Em média, cerca de duas horas.",
+    text: (
+      <>
+        Em média, cerca de <strong className="font-semibold text-foreground">duas horas</strong>.
+      </>
+    ),
   },
   {
     title: "Como se vestir",
-    text: "Venha como se sentir confortável. Não há código de vestimenta.",
+    text: (
+      <>
+        Venha como se sentir confortável. <strong className="font-semibold text-foreground">Não há
+        código de vestimenta</strong>.
+      </>
+    ),
   },
   {
     title: "Idioma",
-    text: "Todos os nossos cultos são em português.",
+    text: (
+      <>
+        Todos os nossos cultos são em{" "}
+        <strong className="font-semibold text-foreground">português</strong>.
+      </>
+    ),
   },
   {
     title: "Estacionamento",
-    text: "Temos estacionamento no próprio local, sem custo para os visitantes.",
+    text: (
+      <>
+        Temos <strong className="font-semibold text-foreground">estacionamento no próprio local</strong>,{" "}
+        <strong className="font-semibold text-foreground">sem custo</strong> para os visitantes.
+      </>
+    ),
   },
   {
     title: "Transporte público (TTC)",
-    text: "O ponto de ônibus mais próximo é Caledonia Rd at Lawrence Ave West, a poucos passos da entrada.",
+    text: (
+      <>
+        O ponto de ônibus mais próximo é{" "}
+        <strong className="font-semibold text-foreground">Caledonia Rd at Lawrence Ave West</strong>, a
+        poucos passos da entrada.
+      </>
+    ),
   },
   {
     title: "Acessibilidade",
-    text: "O prédio ainda não é acessível para cadeirantes. Se você precisa de apoio para entrar, avise no WhatsApp e nossa equipe ajuda na chegada.",
+    text: (
+      <>
+        O prédio <strong className="font-semibold text-foreground">ainda não é acessível para
+        cadeirantes</strong>. Se você precisa de apoio para entrar, avise no{" "}
+        <strong className="font-semibold text-foreground">WhatsApp</strong> e nossa equipe ajuda na
+        chegada.
+      </>
+    ),
   },
 ];
 
@@ -137,7 +177,7 @@ function VisitPage() {
 
       <section className="section-y bg-secondary">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="hidden gap-8 md:grid md:grid-cols-3">
             <img
               src="/img-recepcao.jpg"
               alt="Equipe recebendo visitantes na entrada da igreja"
@@ -161,6 +201,15 @@ function VisitPage() {
               height={853}
               loading="lazy"
               className="aspect-4/3 w-full rounded-lg border border-border object-cover"
+            />
+          </div>
+          <div className="md:hidden">
+            <Carousel
+              slides={[
+                { src: "/img-recepcao.jpg", alt: "Equipe recebendo visitantes na entrada da igreja" },
+                { src: "/img-louvor.jpg", alt: "Momento de louvor durante o culto" },
+                { src: "/img-comunidade.jpg", alt: "Pessoas conversando após o culto" },
+              ]}
             />
           </div>
           <h2 className="mt-14 text-3xl font-bold uppercase text-primary-deep">O que esperar</h2>
