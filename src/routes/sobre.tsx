@@ -91,7 +91,7 @@ function AboutPage() {
       </section>
 
       {/* Missão */}
-      <section className="section-y bg-secondary" aria-labelledby="missao">
+      <section className="pb-[5.5rem] pt-12 bg-secondary" aria-labelledby="missao">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left" className="md:order-2">
             <p className="eyebrow text-primary">02 · Propósito</p>
@@ -120,7 +120,7 @@ function AboutPage() {
       </section>
 
       {/* Visão */}
-      <section className="section-y" aria-labelledby="visao">
+      <section className="pb-[5.5rem] pt-12" aria-labelledby="visao">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left">
             <p className="eyebrow text-primary">03 · Direção</p>
@@ -146,7 +146,7 @@ function AboutPage() {
       </section>
 
       {/* Valores */}
-      <section className="section-y bg-secondary" aria-labelledby="valores">
+      <section className="pb-[5.5rem] pt-12 bg-secondary" aria-labelledby="valores">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal direction="up">
             <p className="eyebrow text-primary">04 · O que nos move</p>
@@ -188,7 +188,7 @@ function AboutPage() {
       </section>
 
       {/* Fé */}
-      <section className="section-y" aria-labelledby="fe">
+      <section className="pb-[5.5rem] pt-12" aria-labelledby="fe">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left">
             <img
