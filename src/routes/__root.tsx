@@ -127,7 +127,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isHome = pathname === "/";
+  const fullFooter = pathname === "/" || pathname === "/sobre";
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -137,7 +137,7 @@ function RootComponent() {
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
-        {isHome ? <SiteFooter /> : null}
+        <SiteFooter variant={fullFooter ? "full" : "minimal"} />
       </div>
     </QueryClientProvider>
   );

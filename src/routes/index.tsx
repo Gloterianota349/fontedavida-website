@@ -176,9 +176,9 @@ function Home() {
               width={1280}
               height={853}
               loading="lazy"
-              className="aspect-4/5 w-full rounded-lg border border-border object-cover"
+              className="hidden aspect-4/5 w-full rounded-lg border border-border object-cover md:block"
             />
-            <div className="card-lift mt-6 rounded-lg border border-border bg-secondary p-7">
+            <div className="card-lift rounded-lg md:mt-6 border border-border bg-secondary p-7">
               <h3 className="text-2xl font-bold uppercase text-primary-deep">Primeira vez aqui?</h3>
               <p className="mt-4 text-sm text-muted-foreground">
                 Chegue alguns minutos antes, venha como estiver e procure alguém da recepção. Vamos te
@@ -195,7 +195,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="section-y bg-secondary" aria-labelledby="cultos">
+      <section className="pb-[5.5rem] pt-12 bg-secondary" aria-labelledby="cultos">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal direction="up">
             <div className="flex flex-wrap items-end justify-between gap-4">
@@ -249,7 +249,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="section-y" aria-labelledby="galeria">
+      <section className="pb-[5.5rem] pt-12" aria-labelledby="galeria">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal direction="up">
             <p className="eyebrow text-primary">Nossa comunidade</p>
@@ -334,7 +334,7 @@ function QuickInfo({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex gap-3 bg-secondary px-4 pb-8 pt-5">
+    <div className="flex gap-3 bg-secondary px-4 pb-5 pt-5">
       <span className="mt-0.5 text-primary">{icon}</span>
       <div>
         <h2 className="meta text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">

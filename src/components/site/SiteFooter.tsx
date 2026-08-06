@@ -2,9 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { CHURCH } from "@/lib/church";
 
-export function SiteFooter() {
+export function SiteFooter({ variant = "full" }: { variant?: "full" | "minimal" }) {
   return (
     <footer className="border-t border-border bg-background">
+      {variant === "full" ? (
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-start md:justify-between">
         <div>
           <h2 className="eyebrow text-primary">Contato</h2>
@@ -51,8 +52,9 @@ export function SiteFooter() {
           </a>
         </div>
       </div>
+      ) : null}
 
-      <div className="border-t border-border">
+      <div className={variant === "full" ? "border-t border-border" : ""}>
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {CHURCH.name}
