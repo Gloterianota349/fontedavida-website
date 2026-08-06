@@ -190,7 +190,7 @@ function AboutPage() {
       {/* Fé */}
       <section className="pb-[5.5rem] pt-12" aria-labelledby="fe">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
-          <Reveal direction="left">
+          <Reveal direction="left" className="order-2 md:order-1">
             <img
               src="/img-biblia.jpg"
               alt="Bíblia aberta sobre uma mesa de madeira"
@@ -200,7 +200,7 @@ function AboutPage() {
               className="aspect-4/3 w-full rounded-lg border border-border object-cover"
             />
           </Reveal>
-          <Reveal direction="right" delay={100}>
+          <Reveal direction="right" delay={100} className="order-1 md:order-2">
             <p className="eyebrow text-primary">05 · Fundamento</p>
             <h2 id="fe" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
               Nossa fé

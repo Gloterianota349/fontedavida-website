@@ -176,9 +176,9 @@ function Home() {
               width={1280}
               height={853}
               loading="lazy"
-              className="aspect-4/5 w-full rounded-lg border border-border object-cover"
+              className="hidden aspect-4/5 w-full rounded-lg border border-border object-cover md:block"
             />
-            <div className="card-lift mt-6 rounded-lg border border-border bg-secondary p-7">
+            <div className="card-lift rounded-lg md:mt-6 border border-border bg-secondary p-7">
               <h3 className="text-2xl font-bold uppercase text-primary-deep">Primeira vez aqui?</h3>
               <p className="mt-4 text-sm text-muted-foreground">
                 Chegue alguns minutos antes, venha como estiver e procure alguém da recepção. Vamos te
