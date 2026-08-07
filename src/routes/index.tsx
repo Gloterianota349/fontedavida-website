@@ -7,13 +7,13 @@ import { Carousel } from "@/components/site/Carousel";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fonte da Vida Toronto — Igreja brasileira em North York" },
+      { title: "Igreja Apostólica Fonte da Vida - Toronto" },
       {
         name: "description",
         content:
           "Igreja Apostólica Fonte da Vida em Toronto. Cultos em português em North York: domingo 10h, terça, quarta e sexta 19h30. Venha nos visitar.",
       },
-      { property: "og:title", content: "Fonte da Vida Toronto — Igreja brasileira em North York" },
+      { property: "og:title", content: "Igreja Apostólica Fonte da Vida - Toronto" },
       {
         property: "og:description",
         content: "Uma igreja para toda a família em Toronto. Cultos em português. Você é nosso convidado.",
