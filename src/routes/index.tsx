@@ -155,7 +155,7 @@ function Home() {
             </p>
             <img
               src="/img-comunidade.jpg"
-              alt="Pessoas conversando e sorrindo após o culto"
+              alt="Membros abraçados em oração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -274,7 +274,7 @@ function Home() {
       <section className="relative isolate overflow-hidden">
         <img
           src="/img-oracao.jpg"
-          alt="Mãos unidas em oração"
+          alt="Pessoas ajoelhadas em oração"
           width={1280}
           height={853}
           loading="lazy"

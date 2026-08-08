@@ -26,7 +26,7 @@ export const Route = createFileRoute("/sobre")({
 const VALUES = [
   { title: "Acolhimento", text: "Cada pessoa que entra é recebida como parte da família.", img: "/img-recepcao.jpg", alt: "Equipe de recepção acolhendo visitantes" },
   { title: "Palavra", text: "A Bíblia é nosso fundamento para a fé e para a vida.", img: "/img-biblia.jpg", alt: "Bíblia aberta sobre a mesa" },
-  { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-oracao.jpg", alt: "Mãos unidas em oração" },
+  { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-oracao.jpg", alt: "Pessoas ajoelhadas em oração" },
   { title: "Família", text: "Cuidamos de casais, crianças, jovens e idosos.", img: "/img-comunidade.jpg", alt: "Famílias reunidas na igreja" },
   { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", img: "/img-grupo.jpg", alt: "Grupo servindo e estudando junto" },
   { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", img: "/img-toronto.jpg", alt: "Vista da cidade de Toronto" },
