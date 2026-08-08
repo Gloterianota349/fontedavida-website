@@ -171,8 +171,8 @@ function Home() {
           </Reveal>
           <Reveal direction="right" delay={120} className="md:col-span-5">
             <img
-              src="/img-recepcao.jpg"
-              alt="Equipe recebendo famílias na entrada da igreja"
+              src="/img-louvor.jpg"
+              alt="Jovem em adoração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
