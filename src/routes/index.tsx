@@ -264,7 +264,7 @@ function Home() {
                 { src: "/img-momento-2.jpg", alt: "Crianças e adolescentes em passeio da igreja", caption: "Passeio dos jovens" },
                 { src: "/img-momento-3.jpg", alt: "Grupo Dokmos reunido em confraternização", caption: "Confraternização" },
                 { src: "/img-momento-4.jpg", alt: "Encontro da igreja em roda de conversa", caption: "Encontro de células" },
-                { src: "/img-louvor.jpg", alt: "Banda de louvor conduzindo o culto", caption: "Momento de louvor" },
+                { src: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto", caption: "Ministério infantil" },
               ]}
             />
           </Reveal>

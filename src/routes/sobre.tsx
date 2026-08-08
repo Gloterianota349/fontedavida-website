@@ -24,11 +24,11 @@ export const Route = createFileRoute("/sobre")({
 });
 
 const VALUES = [
-  { title: "Acolhimento", text: "Cada pessoa que entra é recebida como parte da família.", img: "/img-recepcao.jpg", alt: "Equipe de recepção acolhendo visitantes" },
-  { title: "Palavra", text: "A Bíblia é nosso fundamento para a fé e para a vida.", img: "/img-biblia.jpg", alt: "Bíblia aberta sobre a mesa" },
-  { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-oracao.jpg", alt: "Pessoas ajoelhadas em oração" },
+  { title: "Acolhimento", text: "Cada pessoa que entra é recebida como parte da família.", img: "/img-recepcao.jpg", alt: "Membros da igreja reunidos em confraternização" },
+  { title: "Palavra", text: "A Bíblia é nosso fundamento para a fé e para a vida.", img: "/img-biblia.jpg", alt: "Membro acompanhando a leitura da Bíblia durante o culto" },
+  { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-adoracao.jpg", alt: "Homens de mãos levantadas em oração" },
   { title: "Família", text: "Cuidamos de casais, crianças, jovens e idosos.", img: "/img-comunidade.jpg", alt: "Famílias reunidas na igreja" },
-  { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", img: "/img-grupo.jpg", alt: "Grupo servindo e estudando junto" },
+  { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", img: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto" },
   { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", img: "/img-toronto.jpg", alt: "Vista da cidade de Toronto" },
 ];
 
@@ -109,7 +109,7 @@ function AboutPage() {
           <Reveal direction="right" delay={100} className="md:order-1">
             <img
               src="/img-louvor.jpg"
-              alt="Momento de louvor durante o culto"
+              alt="Jovem em adoração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -135,7 +135,7 @@ function AboutPage() {
           <Reveal direction="right" delay={100}>
             <img
               src="/img-grupo.jpg"
-              alt="Grupo pequeno reunido para estudo bíblico"
+              alt="Crianças em atividade do ministério infantil"
               width={1280}
               height={853}
               loading="lazy"
@@ -193,7 +193,7 @@ function AboutPage() {
           <Reveal direction="left" className="order-2 md:order-1">
             <img
               src="/img-biblia.jpg"
-              alt="Bíblia aberta sobre uma mesa de madeira"
+              alt="Membro com a Bíblia aberta durante o culto"
               width={1280}
               height={853}
               loading="lazy"

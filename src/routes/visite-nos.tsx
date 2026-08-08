@@ -180,7 +180,7 @@ function VisitPage() {
           <div className="hidden gap-8 md:grid md:grid-cols-3">
             <img
               src="/img-recepcao.jpg"
-              alt="Equipe recebendo visitantes na entrada da igreja"
+              alt="Membros da igreja reunidos em confraternização"
               width={1280}
               height={853}
               loading="lazy"
@@ -188,7 +188,7 @@ function VisitPage() {
             />
             <img
               src="/img-louvor.jpg"
-              alt="Momento de louvor durante o culto"
+              alt="Jovem em adoração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -206,8 +206,8 @@ function VisitPage() {
           <div className="md:hidden">
             <Carousel
               slides={[
-                { src: "/img-recepcao.jpg", alt: "Equipe recebendo visitantes na entrada da igreja" },
-                { src: "/img-louvor.jpg", alt: "Momento de louvor durante o culto" },
+                { src: "/img-recepcao.jpg", alt: "Membros da igreja reunidos em confraternização" },
+                { src: "/img-louvor.jpg", alt: "Jovem em adoração durante o culto" },
                 { src: "/img-comunidade.jpg", alt: "Membros abraçados em oração durante o culto" },
               ]}
             />
