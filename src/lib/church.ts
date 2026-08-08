@@ -9,7 +9,7 @@ export const CHURCH = {
   whatsapp: "https://wa.me/14377707282",
   email: "fontetoronto@gmail.com",
   instagram: "https://www.instagram.com/fontedavidatoronto/",
-  youtube: "https://www.youtube.com/@FontedaVidaOficial/featured",
+  youtube: "https://www.youtube.com/@FountainOfLifeToronto",
   mapsEmbed:
     "https://www.google.com/maps?q=1224+Lawrence+Ave+W,+North+York,+ON+M6A+1E3&output=embed",
   mapsDirections:
@@ -33,16 +33,16 @@ export const SERVICES: Service[] = [
     description:
       "Nosso principal encontro da semana: louvor, palavra e comunhão para toda a família.",
     image: "/img-comunidade.jpg",
-    imageAlt: "Famílias reunidas no culto de domingo",
+    imageAlt: "Famílias e amigos abraçados durante o culto de domingo",
   },
   {
     day: "Terça-feira",
     time: "19h30",
-    title: "Encontro de Mulheres",
+    title: "Espaço Mulher",
     description:
       "Um tempo de oração, edificação e amizade entre as mulheres da igreja.",
-    image: "/img-oracao.jpg",
-    imageAlt: "Mulheres em momento de oração",
+    image: "/img-espaco-mulher.jpg",
+    imageAlt: "Mulheres da igreja reunidas no Espaço Mulher",
   },
   {
     day: "Quarta-feira",
@@ -50,16 +50,16 @@ export const SERVICES: Service[] = [
     title: "Quarta do Resgate",
     description:
       "Noite de fé, intercessão e restauração para quem precisa de um recomeço.",
-    image: "/img-biblia.jpg",
-    imageAlt: "Bíblia aberta durante a Quarta do Resgate",
+    image: "/img-oracao.jpg",
+    imageAlt: "Pessoas ajoelhadas em oração na Quarta do Resgate",
   },
   {
     day: "Sexta-feira",
     time: "19h30",
-    title: "Culto de Jovens e Adolescentes",
+    title: "Dokmos - Jovens e Adolescentes",
     description:
       "Louvor vibrante e palavra relevante para a nova geração da igreja.",
-    image: "/img-louvor.jpg",
-    imageAlt: "Jovens no momento de louvor",
+    image: "/img-dokmos.jpg",
+    imageAlt: "Jovens e adolescentes do Dokmos reunidos",
   },
 ];
