@@ -196,7 +196,7 @@ function VisitPage() {
             />
             <img
               src="/img-comunidade.jpg"
-              alt="Pessoas conversando após o culto"
+              alt="Membros abraçados em oração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -208,7 +208,7 @@ function VisitPage() {
               slides={[
                 { src: "/img-recepcao.jpg", alt: "Equipe recebendo visitantes na entrada da igreja" },
                 { src: "/img-louvor.jpg", alt: "Momento de louvor durante o culto" },
-                { src: "/img-comunidade.jpg", alt: "Pessoas conversando após o culto" },
+                { src: "/img-comunidade.jpg", alt: "Membros abraçados em oração durante o culto" },
               ]}
             />
           </div>

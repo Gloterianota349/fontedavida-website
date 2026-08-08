@@ -155,7 +155,7 @@ function Home() {
             </p>
             <img
               src="/img-comunidade.jpg"
-              alt="Pessoas conversando e sorrindo após o culto"
+              alt="Membros abraçados em oração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -260,11 +260,11 @@ function Home() {
           <Reveal direction="up" delay={80} className="mt-12 block">
             <Carousel
               slides={[
+                { src: "/img-momento-1.jpg", alt: "Equipe da igreja reunida sorrindo", caption: "Nossa equipe" },
+                { src: "/img-momento-2.jpg", alt: "Crianças e adolescentes em passeio da igreja", caption: "Passeio dos jovens" },
+                { src: "/img-momento-3.jpg", alt: "Grupo Dokmos reunido em confraternização", caption: "Confraternização" },
+                { src: "/img-momento-4.jpg", alt: "Encontro da igreja em roda de conversa", caption: "Encontro de células" },
                 { src: "/img-louvor.jpg", alt: "Banda de louvor conduzindo o culto", caption: "Momento de louvor" },
-                { src: "/img-comunidade.jpg", alt: "Pessoas conversando após o culto", caption: "Comunhão após o culto" },
-                { src: "/img-grupo.jpg", alt: "Grupo pequeno reunido com Bíblias abertas", caption: "Grupos de estudo" },
-                { src: "/img-oracao.jpg", alt: "Duas pessoas orando juntas", caption: "Tempo de oração" },
-                { src: "/img-recepcao.jpg", alt: "Equipe recebendo famílias na entrada", caption: "Recepção e acolhimento" },
               ]}
             />
           </Reveal>
@@ -274,7 +274,7 @@ function Home() {
       <section className="relative isolate overflow-hidden">
         <img
           src="/img-oracao.jpg"
-          alt="Mãos unidas em oração"
+          alt="Pessoas ajoelhadas em oração"
           width={1280}
           height={853}
           loading="lazy"
