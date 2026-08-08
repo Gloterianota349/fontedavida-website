@@ -171,8 +171,8 @@ function Home() {
           </Reveal>
           <Reveal direction="right" delay={120} className="md:col-span-5">
             <img
-              src="/img-recepcao.jpg"
-              alt="Equipe recebendo famílias na entrada da igreja"
+              src="/img-louvor.jpg"
+              alt="Jovem em adoração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -264,7 +264,7 @@ function Home() {
                 { src: "/img-momento-2.jpg", alt: "Crianças e adolescentes em passeio da igreja", caption: "Passeio dos jovens" },
                 { src: "/img-momento-3.jpg", alt: "Grupo Dokmos reunido em confraternização", caption: "Confraternização" },
                 { src: "/img-momento-4.jpg", alt: "Encontro da igreja em roda de conversa", caption: "Encontro de células" },
-                { src: "/img-louvor.jpg", alt: "Banda de louvor conduzindo o culto", caption: "Momento de louvor" },
+                { src: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto", caption: "Ministério infantil" },
               ]}
             />
           </Reveal>

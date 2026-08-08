@@ -66,8 +66,8 @@ function PrayerPage() {
     <>
       <section className="relative isolate overflow-hidden">
         <img
-          src="/img-oracao.jpg"
-          alt="Pessoas ajoelhadas em oração"
+          src="/img-intercessao.jpg"
+          alt="Pastor orando com imposição de mãos sobre uma pessoa"
           width={1280}
           height={853}
           className="absolute inset-0 -z-10 size-full object-cover"
