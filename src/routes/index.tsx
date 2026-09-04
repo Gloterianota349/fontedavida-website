@@ -154,8 +154,8 @@ function Home() {
               a vida real. Não importa em que ponto da jornada você esteja, aqui há lugar para você.
             </p>
             <img
-              src="/img-comunidade.jpg"
-              alt="Membros abraçados em oração durante o culto"
+              src="/img-quem-somos-1.jpg"
+              alt="Mulheres conversando e sorrindo antes do culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -171,8 +171,8 @@ function Home() {
           </Reveal>
           <Reveal direction="right" delay={120} className="md:col-span-5">
             <img
-              src="/img-louvor.jpg"
-              alt="Jovem em adoração durante o culto"
+              src="/img-quem-somos-2.jpg"
+              alt="Duas mulheres se cumprimentando com alegria na igreja"
               width={1280}
               height={853}
               loading="lazy"
@@ -260,11 +260,11 @@ function Home() {
           <Reveal direction="up" delay={80} className="mt-12 block">
             <Carousel
               slides={[
-                { src: "/img-momento-1.jpg", alt: "Equipe da igreja reunida sorrindo", caption: "Nossa equipe" },
-                { src: "/img-momento-2.jpg", alt: "Crianças e adolescentes em passeio da igreja", caption: "Passeio dos jovens" },
+                { src: "/img-momento-1.jpg", alt: "Equipe da igreja reunida sorrindo", caption: "Bethel do Avivamento" },
+                { src: "/img-momento-2.jpg", alt: "Crianças e adolescentes em passeio da igreja", caption: "Encontro dos Dokmos" },
                 { src: "/img-momento-3.jpg", alt: "Grupo Dokmos reunido em confraternização", caption: "Confraternização" },
-                { src: "/img-momento-4.jpg", alt: "Encontro da igreja em roda de conversa", caption: "Encontro de células" },
-                { src: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto", caption: "Ministério infantil" },
+                { src: "/img-momento-4.jpg", alt: "Encontro da igreja em roda de conversa", caption: "Reunião de Natal" },
+                { src: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto", caption: "Desafio de Elias" },
               ]}
             />
           </Reveal>
@@ -273,8 +273,8 @@ function Home() {
 
       <section className="relative isolate overflow-hidden">
         <img
-          src="/img-oracao.jpg"
-          alt="Pessoas ajoelhadas em oração"
+          src="/img-oracao-cta.jpg"
+          alt="Irmã orando com as mãos sobre a cabeça de uma senhora"
           width={1280}
           height={853}
           loading="lazy"

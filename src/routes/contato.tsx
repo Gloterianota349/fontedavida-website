@@ -66,8 +66,8 @@ function ContactPage() {
     <>
       <section className="relative isolate overflow-hidden">
         <img
-          src="/img-comunidade.jpg"
-          alt="Membros da igreja conversando"
+          src="/img-contato-hero.jpg"
+          alt="Recepção acolhendo um visitante na entrada da igreja"
           width={1280}
           height={853}
           className="absolute inset-0 -z-10 size-full object-cover"

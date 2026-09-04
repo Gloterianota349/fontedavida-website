@@ -29,7 +29,7 @@ const VALUES = [
   { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-adoracao.jpg", alt: "Homens de mãos levantadas em oração" },
   { title: "Família", text: "Cuidamos de casais, crianças, jovens e idosos.", img: "/img-comunidade.jpg", alt: "Famílias reunidas na igreja" },
   { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", img: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto" },
-  { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", img: "/img-toronto.jpg", alt: "Vista da cidade de Toronto" },
+  { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", img: "/img-missao.jpg", alt: "Círculo de oração na entrada da igreja" },
 ];
 
 function AboutPage() {
@@ -37,8 +37,8 @@ function AboutPage() {
     <>
       <section className="relative isolate overflow-hidden">
         <img
-          src="/img-comunidade.jpg"
-          alt="Membros da igreja conversando após o culto"
+          src="/img-sobre-hero.jpg"
+          alt="Igreja reunida em círculo de adoração"
           width={1280}
           height={853}
           className="absolute inset-0 -z-10 size-full object-cover"
@@ -79,8 +79,8 @@ function AboutPage() {
           </Reveal>
           <Reveal direction="right" delay={100}>
             <img
-              src="/img-toronto.jpg"
-              alt="Vista da cidade de Toronto ao entardecer"
+              src="/img-historia.jpg"
+              alt="Casal ajoelhado em oração durante o culto"
               width={1280}
               height={853}
               loading="lazy"
@@ -108,8 +108,8 @@ function AboutPage() {
           </Reveal>
           <Reveal direction="right" delay={100} className="md:order-1">
             <img
-              src="/img-louvor.jpg"
-              alt="Jovem em adoração durante o culto"
+              src="/img-missao.jpg"
+              alt="Círculo de oração na entrada da igreja"
               width={1280}
               height={853}
               loading="lazy"
