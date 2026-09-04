@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as PedidoDeOracaoRouteImport } from './routes/pedido-de-oracao'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as VisiteNosRouteImport } from './routes/visite-nos'
 
@@ -30,6 +31,11 @@ const PedidoDeOracaoRoute = PedidoDeOracaoRouteImport.update({
   path: '/pedido-de-oracao',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/pedido-de-oracao': typeof PedidoDeOracaoRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/visite-nos': typeof VisiteNosRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/pedido-de-oracao': typeof PedidoDeOracaoRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/visite-nos': typeof VisiteNosRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/pedido-de-oracao': typeof PedidoDeOracaoRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/visite-nos': typeof VisiteNosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contato' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/pedido-de-oracao'
+    | '/sitemap.xml'
+    | '/sobre'
+    | '/visite-nos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/pedido-de-oracao' | '/sobre' | '/visite-nos'
+  to:
+    | '/'
+    | '/contato'
+    | '/pedido-de-oracao'
+    | '/sitemap.xml'
+    | '/sobre'
+    | '/visite-nos'
   id:
     | '__root__'
     | '/'
     | '/contato'
     | '/pedido-de-oracao'
+    | '/sitemap.xml'
     | '/sobre'
     | '/visite-nos'
   fileRoutesById: FileRoutesById
@@ -81,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
   PedidoDeOracaoRoute: typeof PedidoDeOracaoRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
   VisiteNosRoute: typeof VisiteNosRoute
 }
@@ -108,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PedidoDeOracaoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
@@ -129,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
   PedidoDeOracaoRoute: PedidoDeOracaoRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
   VisiteNosRoute: VisiteNosRoute,
 }
