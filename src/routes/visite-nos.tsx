@@ -187,7 +187,7 @@ function VisitPage() {
               className="aspect-4/3 w-full rounded-lg border border-border object-cover"
             />
             <img
-              src="/img-louvor.jpg"
+              src="/img-visita-2.jpg"
               alt="Jovem em adoração durante o culto"
               width={1280}
               height={853}
@@ -195,7 +195,7 @@ function VisitPage() {
               className="aspect-4/3 w-full rounded-lg border border-border object-cover"
             />
             <img
-              src="/img-comunidade.jpg"
+              src="/img-visita-3.jpg"
               alt="Membros abraçados em oração durante o culto"
               width={1280}
               height={853}
@@ -207,8 +207,8 @@ function VisitPage() {
             <Carousel
               slides={[
                 { src: "/img-recepcao.jpg", alt: "Membros da igreja reunidos em confraternização" },
-                { src: "/img-louvor.jpg", alt: "Jovem em adoração durante o culto" },
-                { src: "/img-comunidade.jpg", alt: "Membros abraçados em oração durante o culto" },
+                { src: "/img-visita-2.jpg", alt: "Momento de oração com imposição de mãos" },
+                { src: "/img-visita-3.jpg", alt: "Pessoas com as mãos levantadas em oração" },
               ]}
             />
           </div>
