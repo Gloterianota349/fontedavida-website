@@ -113,10 +113,11 @@ function PrayerPage() {
               <Field id="request" label="Seu pedido" error={errors['request']}>
                 <textarea id="request" name="request" rows={6} maxLength={2000} className={inputClass} />
               </Field>
-              <label className="flex items-start gap-3 text-sm text-foreground">
-                <input type="checkbox" name="isPrivate" className="mt-1 size-4" />
+              <label htmlFor="isPrivate" className="flex items-start gap-3 text-sm text-foreground">
+                <input id="isPrivate" type="checkbox" name="isPrivate" className="mt-1 size-4" />
                 <span>Manter meu pedido em sigilo (visível apenas para a equipe pastoral)</span>
               </label>
+
 
               {status === "error" ? (
                 <p role="alert" className="text-sm font-semibold text-destructive">
