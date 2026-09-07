@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { I18nProvider } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -129,6 +130,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <I18nProvider>
       <div className="flex min-h-dvh flex-col">
         <SiteHeader />
         <main className="flex-1">
@@ -137,6 +139,7 @@ function RootComponent() {
         </main>
         <SiteFooter variant={fullFooter ? "full" : "minimal"} />
       </div>
+      </I18nProvider>
     </QueryClientProvider>
   );
 }
