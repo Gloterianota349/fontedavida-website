@@ -6,6 +6,7 @@ import { CHURCH, SERVICES } from "@/lib/church";
 import { submitContactMessage } from "@/lib/forms.functions";
 import { contactSchema } from "@/lib/form-schemas";
 import { Field, inputClass } from "@/components/site/Field";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -30,9 +31,21 @@ export const Route = createFileRoute("/contato")({
 });
 
 function ContactPage() {
+  const { t, lang } = useI18n();
   const send = useServerFn(submitContactMessage);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const errorMessages: Record<string, string> = {
+    "Informe seu nome": t("Informe seu nome", "Please enter your name"),
+    "E-mail inválido": t("E-mail inválido", "Invalid email"),
+    "Informe o assunto": t("Informe o assunto", "Please enter a subject"),
+    "Escreva sua mensagem": t("Escreva sua mensagem", "Please write your message"),
+  };
+
+  function translateError(message: string) {
+    return errorMessages[message] ?? message;
+  }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -47,7 +60,7 @@ function ContactPage() {
 
     if (!parsed.success) {
       const next: Record<string, string> = {};
-      for (const issue of parsed.error.issues) next[String(issue.path[0])] = issue.message;
+      for (const issue of parsed.error.issues) next[String(issue.path[0])] = translateError(issue.message);
       setErrors(next);
       return;
     }
@@ -67,7 +80,7 @@ function ContactPage() {
       <section className="relative isolate overflow-hidden">
         <img
           src="/img-contato-hero.jpg"
-          alt="Recepção acolhendo um visitante na entrada da igreja"
+          alt={t("Recepção acolhendo um visitante na entrada da igreja", "Welcome team greeting a visitor at the church entrance")}
           width={1280}
           height={853}
           className="absolute inset-0 -z-10 size-full object-cover"
@@ -77,12 +90,12 @@ function ContactPage() {
           aria-hidden
         />
         <div className="mx-auto max-w-6xl px-4 py-24">
-          <p className="eyebrow text-accent">Estamos por perto</p>
+          <p className="eyebrow text-accent">{t("Estamos por perto", "We're close by")}</p>
           <h1 className="mt-5 text-5xl font-bold uppercase text-primary-foreground md:text-6xl">
-            Contato
+            {t("Contato", "Contact")}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-accent">
-            Estamos por aqui para te ouvir, tirar dúvidas e te receber.
+            {t("Estamos por aqui para te ouvir, tirar dúvidas e te receber.", "We're here to listen, answer questions, and welcome you.")}
           </p>
         </div>
       </section>
@@ -90,11 +103,11 @@ function ContactPage() {
       <section className="pb-[5.5rem] pt-10">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold uppercase text-primary-deep">Fale com a gente</h2>
+            <h2 className="text-2xl font-bold uppercase text-primary-deep">{t("Fale com a gente", "Get in touch")}</h2>
             <ul className="mt-6 space-y-4 text-foreground">
               <li className="flex gap-3">
                 <MapPin aria-hidden className="mt-1 size-5 shrink-0 text-primary" />
-                <span>{CHURCH.address}</span>
+                <span>{lang === "pt" ? CHURCH.address : (CHURCH.address as string)}</span>
               </li>
               <li className="flex gap-3">
                 <Phone aria-hidden className="mt-1 size-5 shrink-0 text-primary" />
@@ -110,7 +123,7 @@ function ContactPage() {
               </li>
             </ul>
 
-            <h3 className="mt-10 text-lg font-bold uppercase text-primary-deep">Horários</h3>
+            <h3 className="mt-10 text-lg font-bold uppercase text-primary-deep">{t("Horários", "Service times")}</h3>
             <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
               {SERVICES.map((s) => (
                 <li key={s.title}>
@@ -124,7 +137,7 @@ function ContactPage() {
 
             <div className="mt-8 overflow-hidden rounded-lg border border-border">
               <iframe
-                title="Mapa com a localização da Fonte da Vida Toronto"
+                title={t("Mapa com a localização da Fonte da Vida Toronto", "Map showing the location of Fonte da Vida Toronto")}
                 src={CHURCH.mapsEmbed}
                 loading="lazy"
                 className="h-64 w-full border-0"
@@ -136,32 +149,32 @@ function ContactPage() {
           <div>
             {status === "sent" ? (
               <div className="rounded-lg border border-border bg-accent/40 p-8" role="status">
-                <h2 className="text-2xl font-bold uppercase text-primary-deep">Mensagem enviada</h2>
+                <h2 className="text-2xl font-bold uppercase text-primary-deep">{t("Mensagem enviada", "Message sent")}</h2>
                 <p className="mt-3 text-muted-foreground">
-                  Obrigado por escrever. Nossa equipe responde assim que possível.
+                  {t("Obrigado por escrever. Nossa equipe responde assim que possível.", "Thank you for writing. Our team will respond as soon as possible.")}
                 </p>
               </div>
             ) : (
               <form onSubmit={onSubmit} noValidate className="space-y-5">
-                <Field id="c-name" label="Seu nome" error={errors['name']}>
+                <Field id="c-name" label={t("Seu nome", "Your name")} error={errors['name']}>
                   <input id="c-name" name="name" maxLength={100} className={inputClass} />
                 </Field>
-                <Field id="c-email" label="E-mail" error={errors['email']}>
+                <Field id="c-email" label={t("E-mail", "Email")} error={errors['email']}>
                   <input id="c-email" name="email" type="email" maxLength={255} className={inputClass} />
                 </Field>
-                <Field id="c-phone" label="Telefone (opcional)" error={errors['phone']}>
+                <Field id="c-phone" label={t("Telefone (opcional)", "Phone (optional)")} error={errors['phone']}>
                   <input id="c-phone" name="phone" maxLength={40} className={inputClass} />
                 </Field>
-                <Field id="c-subject" label="Assunto" error={errors['subject']}>
+                <Field id="c-subject" label={t("Assunto", "Subject")} error={errors['subject']}>
                   <input id="c-subject" name="subject" maxLength={150} className={inputClass} />
                 </Field>
-                <Field id="c-message" label="Mensagem" error={errors['message']}>
+                <Field id="c-message" label={t("Mensagem", "Message")} error={errors['message']}>
                   <textarea id="c-message" name="message" rows={6} maxLength={2000} className={inputClass} />
                 </Field>
 
                 {status === "error" ? (
                   <p role="alert" className="text-sm font-semibold text-destructive">
-                    Não foi possível enviar agora. Tente novamente em instantes.
+                    {t("Não foi possível enviar agora. Tente novamente em instantes.", "We couldn't send your message right now. Please try again shortly.")}
                   </p>
                 ) : null}
 
@@ -170,7 +183,7 @@ function ContactPage() {
                   disabled={status === "sending"}
                   className="inline-flex min-h-11 items-center rounded-md bg-primary px-8 font-semibold text-primary-foreground transition-colors hover:bg-primary-deep disabled:opacity-60"
                 >
-                  {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+                  {status === "sending" ? t("Enviando...", "Sending...") : t("Enviar mensagem", "Send message")}
                 </button>
               </form>
             )}
