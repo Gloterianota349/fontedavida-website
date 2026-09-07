@@ -1,19 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { CHURCH } from "@/lib/church";
+import { useI18n } from "@/lib/i18n";
 
 export function SiteFooter({ variant = "full" }: { variant?: "full" | "minimal" }) {
+  const { t, lang } = useI18n();
   return (
     <footer className="border-t border-border bg-background">
       {variant === "full" ? (
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-start md:justify-between">
         <div>
-          <h2 className="eyebrow text-primary">Contato</h2>
+          <h2 className="eyebrow text-primary">{t("Contato", "Contact")}</h2>
           <ul className="mt-4 space-y-2 text-sm text-foreground">
             <li className="flex gap-2">
               <MapPin aria-hidden className="mt-1 size-4 shrink-0 text-primary" />
               <span className="meta">
-                {CHURCH.addressLine1}, {CHURCH.addressLine2}
+                {CHURCH.addressLine1}, {lang === "pt" ? CHURCH.addressLine2 : CHURCH.addressLine2En}
               </span>
             </li>
             <li className="flex gap-2">
@@ -36,7 +38,7 @@ export function SiteFooter({ variant = "full" }: { variant?: "full" | "minimal" 
             href={CHURCH.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram da Fonte da Vida Toronto"
+            aria-label={t("Instagram da Fonte da Vida Toronto", "Fonte da Vida Toronto on Instagram")}
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border text-primary transition-colors hover:border-primary"
           >
             <Instagram aria-hidden className="size-5" />
@@ -45,7 +47,7 @@ export function SiteFooter({ variant = "full" }: { variant?: "full" | "minimal" 
             href={CHURCH.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Canal no YouTube"
+            aria-label={t("Canal no YouTube", "YouTube channel")}
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-border text-primary transition-colors hover:border-primary"
           >
             <Youtube aria-hidden className="size-5" />
@@ -60,7 +62,7 @@ export function SiteFooter({ variant = "full" }: { variant?: "full" | "minimal" 
             © {new Date().getFullYear()} {CHURCH.name}
           </p>
           <Link to="/contato" className="meta uppercase tracking-[0.14em] hover:text-primary">
-            Fale conosco
+            {t("Fale conosco", "Get in touch")}
           </Link>
         </div>
       </div>
