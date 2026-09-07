@@ -107,7 +107,9 @@ function ContactPage() {
             <ul className="mt-6 space-y-4 text-foreground">
               <li className="flex gap-3">
                 <MapPin aria-hidden className="mt-1 size-5 shrink-0 text-primary" />
-                <span>{lang === "pt" ? CHURCH.address : (CHURCH.address as string)}</span>
+                <span>
+                  {CHURCH.addressLine1}, {lang === "pt" ? CHURCH.addressLine2 : CHURCH.addressLine2En}
+                </span>
               </li>
               <li className="flex gap-3">
                 <Phone aria-hidden className="mt-1 size-5 shrink-0 text-primary" />
