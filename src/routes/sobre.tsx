@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -23,22 +24,81 @@ export const Route = createFileRoute("/sobre")({
   component: AboutPage,
 });
 
-const VALUES = [
-  { title: "Acolhimento", text: "Cada pessoa que entra é recebida como parte da família.", img: "/img-recepcao.jpg", alt: "Membros da igreja reunidos em confraternização" },
-  { title: "Palavra", text: "A Bíblia é nosso fundamento para a fé e para a vida.", img: "/img-biblia.jpg", alt: "Membro acompanhando a leitura da Bíblia durante o culto" },
-  { title: "Oração", text: "Cremos que Deus ouve e responde.", img: "/img-adoracao.jpg", alt: "Homens de mãos levantadas em oração" },
-  { title: "Família", text: "Cuidamos de casais, crianças, jovens e idosos.", img: "/img-comunidade.jpg", alt: "Famílias reunidas na igreja" },
-  { title: "Serviço", text: "Servimos uns aos outros e à cidade de Toronto.", img: "/img-criancas.jpg", alt: "Crianças acompanhando a leitura durante o culto" },
-  { title: "Missão", text: "Levar a mensagem de Jesus a brasileiros e a todos os povos.", img: "/img-missao.jpg", alt: "Círculo de oração na entrada da igreja" },
-];
+function useValues() {
+  const { t } = useI18n();
+  return [
+    {
+      title: t("Acolhimento", "Welcome"),
+      text: t(
+        "Cada pessoa que entra é recebida como parte da família.",
+        "Every person who walks in is welcomed as part of the family."
+      ),
+      img: "/img-recepcao.jpg",
+      alt: t(
+        "Membros da igreja reunidos em confraternização",
+        "Church members gathered in fellowship"
+      ),
+    },
+    {
+      title: t("Palavra", "The Word"),
+      text: t(
+        "A Bíblia é nosso fundamento para a fé e para a vida.",
+        "The Bible is our foundation for faith and for life."
+      ),
+      img: "/img-biblia.jpg",
+      alt: t(
+        "Membro acompanhando a leitura da Bíblia durante o culto",
+        "A member following along in the Bible during the service"
+      ),
+    },
+    {
+      title: t("Oração", "Prayer"),
+      text: t("Cremos que Deus ouve e responde.", "We believe God hears and answers."),
+      img: "/img-adoracao.jpg",
+      alt: t("Homens de mãos levantadas em oração", "Men with raised hands in prayer"),
+    },
+    {
+      title: t("Família", "Family"),
+      text: t(
+        "Cuidamos de casais, crianças, jovens e idosos.",
+        "We care for couples, children, youth, and seniors."
+      ),
+      img: "/img-comunidade.jpg",
+      alt: t("Famílias reunidas na igreja", "Families gathered at church"),
+    },
+    {
+      title: t("Serviço", "Service"),
+      text: t(
+        "Servimos uns aos outros e à cidade de Toronto.",
+        "We serve one another and the city of Toronto."
+      ),
+      img: "/img-criancas.jpg",
+      alt: t(
+        "Crianças acompanhando a leitura durante o culto",
+        "Children following along during the service"
+      ),
+    },
+    {
+      title: t("Missão", "Mission"),
+      text: t(
+        "Levar a mensagem de Jesus a brasileiros e a todos os povos.",
+        "Bringing the message of Jesus to Brazilians and to all peoples."
+      ),
+      img: "/img-missao.jpg",
+      alt: t("Círculo de oração na entrada da igreja", "A prayer circle at the church entrance"),
+    },
+  ];
+}
 
 function AboutPage() {
+  const { t } = useI18n();
+  const VALUES = useValues();
   return (
     <>
       <section className="relative isolate overflow-hidden">
         <img
           src="/img-sobre-hero.jpg"
-          alt="Igreja reunida em círculo de adoração"
+          alt={t("Igreja reunida em círculo de adoração", "Church gathered in a circle of worship")}
           width={1280}
           height={853}
           className="absolute inset-0 -z-10 size-full object-cover"
@@ -48,13 +108,15 @@ function AboutPage() {
           aria-hidden
         />
         <div className="mx-auto max-w-6xl px-4 py-24">
-          <p className="eyebrow text-accent">Quem somos</p>
+          <p className="eyebrow text-accent">{t("Quem somos", "Who we are")}</p>
           <h1 className="mt-5 text-5xl font-bold uppercase text-primary-foreground md:text-6xl">
-            Sobre nós
+            {t("Sobre nós", "About us")}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-accent">
-            Uma igreja brasileira em Toronto, formada por pessoas que recomeçaram — e encontraram uma
-            família.
+            {t(
+              "Uma igreja brasileira em Toronto, formada por pessoas que recomeçaram — e encontraram uma família.",
+              "A Brazilian church in Toronto, formed by people who started over — and found a family."
+            )}
           </p>
         </div>
       </section>
@@ -63,24 +125,27 @@ function AboutPage() {
       <section className="pb-[5.5rem] pt-10" aria-labelledby="historia">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left">
-            <p className="eyebrow text-primary">01 · Origem</p>
+            <p className="eyebrow text-primary">{t("01 · Origem", "01 · Origin")}</p>
             <h2 id="historia" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
-              Nossa história
+              {t("Nossa história", "Our story")}
             </h2>
             <p className="mt-6 text-muted-foreground">
-              A Fonte da Vida Toronto nasceu do desejo de oferecer um lar espiritual à comunidade
-              brasileira no Canadá. O que começou com poucas famílias reunidas em oração cresceu e se
-              tornou uma igreja que hoje acolhe imigrantes, estudantes, casais e crianças em North York.
+              {t(
+                "A Fonte da Vida Toronto nasceu do desejo de oferecer um lar espiritual à comunidade brasileira no Canadá. O que começou com poucas famílias reunidas em oração cresceu e se tornou uma igreja que hoje acolhe imigrantes, estudantes, casais e crianças em North York.",
+                "Fonte da Vida Toronto was born from a desire to offer a spiritual home to the Brazilian community in Canada. What began with a few families gathered in prayer has grown into a church that today welcomes immigrants, students, couples, and children in North York."
+              )}
             </p>
             <p className="mt-4 text-muted-foreground">
-              Fazemos parte do Ministério Fonte da Vida, uma família de igrejas presente em várias cidades
-              e países, unida pela mesma fé e pelo mesmo compromisso com as pessoas.
+              {t(
+                "Fazemos parte do Ministério Fonte da Vida, uma família de igrejas presente em várias cidades e países, unida pela mesma fé e pelo mesmo compromisso com as pessoas.",
+                "We are part of Ministério Fonte da Vida, a family of churches present in many cities and countries, united by the same faith and the same commitment to people."
+              )}
             </p>
           </Reveal>
           <Reveal direction="right" delay={100}>
             <img
               src="/img-historia.jpg"
-              alt="Casal ajoelhado em oração durante o culto"
+              alt={t("Casal ajoelhado em oração durante o culto", "Couple kneeling in prayer during the service")}
               width={1280}
               height={853}
               loading="lazy"
@@ -94,22 +159,24 @@ function AboutPage() {
       <section className="pb-[5.5rem] pt-12 bg-secondary" aria-labelledby="missao">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left" className="md:order-2">
-            <p className="eyebrow text-primary">02 · Propósito</p>
+            <p className="eyebrow text-primary">{t("02 · Propósito", "02 · Purpose")}</p>
             <h2 id="missao" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
-              Nossa missão
+              {t("Nossa missão", "Our mission")}
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Levar pessoas a um encontro real com Jesus e ajudá-las a crescer em fé, em comunidade e em
-              propósito.
+              {t(
+                "Levar pessoas a um encontro real com Jesus e ajudá-las a crescer em fé, em comunidade e em propósito.",
+                "To lead people into a real encounter with Jesus and help them grow in faith, in community, and in purpose."
+              )}
             </p>
             <blockquote className="mt-8 border-l-2 border-primary pl-5 font-display text-2xl uppercase leading-tight text-primary-deep">
-              Fé que se vive junto, no dia a dia.
+              {t("Fé que se vive junto, no dia a dia.", "Faith lived together, day by day.")}
             </blockquote>
           </Reveal>
           <Reveal direction="right" delay={100} className="md:order-1">
             <img
               src="/img-missao.jpg"
-              alt="Círculo de oração na entrada da igreja"
+              alt={t("Círculo de oração na entrada da igreja", "A prayer circle at the church entrance")}
               width={1280}
               height={853}
               loading="lazy"
@@ -123,19 +190,21 @@ function AboutPage() {
       <section className="pb-[5.5rem] pt-12" aria-labelledby="visao">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
           <Reveal direction="left">
-            <p className="eyebrow text-primary">03 · Direção</p>
+            <p className="eyebrow text-primary">{t("03 · Direção", "03 · Direction")}</p>
             <h2 id="visao" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
-              Nossa visão
+              {t("Nossa visão", "Our vision")}
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Ser uma igreja acolhedora e relevante em Toronto, que serve a comunidade brasileira e alcança
-              a cidade com o amor de Cristo.
+              {t(
+                "Ser uma igreja acolhedora e relevante em Toronto, que serve a comunidade brasileira e alcança a cidade com o amor de Cristo.",
+                "To be a welcoming and relevant church in Toronto that serves the Brazilian community and reaches the city with the love of Christ."
+              )}
             </p>
           </Reveal>
           <Reveal direction="right" delay={100}>
             <img
               src="/img-grupo.jpg"
-              alt="Crianças em atividade do ministério infantil"
+              alt={t("Crianças em atividade do ministério infantil", "Children taking part in a kids ministry activity")}
               width={1280}
               height={853}
               loading="lazy"
@@ -149,9 +218,9 @@ function AboutPage() {
       <section className="pb-[5.5rem] pt-12 bg-secondary" aria-labelledby="valores">
         <div className="mx-auto max-w-6xl px-4">
           <Reveal direction="up">
-            <p className="eyebrow text-primary">04 · O que nos move</p>
+            <p className="eyebrow text-primary">{t("04 · O que nos move", "04 · What moves us")}</p>
             <h2 id="valores" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
-              Nossos valores
+              {t("Nossos valores", "Our values")}
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -193,7 +262,7 @@ function AboutPage() {
           <Reveal direction="left" className="order-2 md:order-1">
             <img
               src="/img-biblia.jpg"
-              alt="Membro com a Bíblia aberta durante o culto"
+              alt={t("Membro com a Bíblia aberta durante o culto", "A member with an open Bible during the service")}
               width={1280}
               height={853}
               loading="lazy"
@@ -201,14 +270,15 @@ function AboutPage() {
             />
           </Reveal>
           <Reveal direction="right" delay={100} className="order-1 md:order-2">
-            <p className="eyebrow text-primary">05 · Fundamento</p>
+            <p className="eyebrow text-primary">{t("05 · Fundamento", "05 · Foundation")}</p>
             <h2 id="fe" className="mt-5 text-4xl font-bold uppercase text-primary-deep">
-              Nossa fé
+              {t("Nossa fé", "Our faith")}
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Cremos em um só Deus, Pai, Filho e Espírito Santo. Cremos na Bíblia como Palavra inspirada de
-              Deus, na salvação pela graça mediante a fé em Jesus Cristo, na obra do Espírito Santo na vida
-              do cristão e na Igreja como comunidade de fé chamada a servir.
+              {t(
+                "Cremos em um só Deus, Pai, Filho e Espírito Santo. Cremos na Bíblia como Palavra inspirada de Deus, na salvação pela graça mediante a fé em Jesus Cristo, na obra do Espírito Santo na vida do cristão e na Igreja como comunidade de fé chamada a servir.",
+                "We believe in one God, Father, Son, and Holy Spirit. We believe the Bible is the inspired Word of God, in salvation by grace through faith in Jesus Christ, in the work of the Holy Spirit in the life of the believer, and in the Church as a community of faith called to serve."
+              )}
             </p>
           </Reveal>
         </div>
@@ -218,14 +288,16 @@ function AboutPage() {
         <div className="mx-auto max-w-4xl px-4 py-16 text-center">
           <Reveal direction="up">
             <h2 className="text-3xl font-bold uppercase text-primary-foreground md:text-4xl">
-              Quer nos conhecer pessoalmente?
+              {t("Quer nos conhecer pessoalmente?", "Want to meet us in person?")}
             </h2>
-            <p className="mt-3 text-accent">Venha a um culto. Você é nosso convidado.</p>
+            <p className="mt-3 text-accent">
+              {t("Venha a um culto. Você é nosso convidado.", "Come to a service. You are our guest.")}
+            </p>
             <Link
               to="/visite-nos"
               className="meta mt-8 inline-flex min-h-12 items-center rounded-md bg-primary-foreground px-7 text-sm font-semibold uppercase tracking-[0.12em] text-primary-deep transition-opacity hover:opacity-90"
             >
-              Planeje sua visita
+              {t("Planeje sua visita", "Plan your visit")}
             </Link>
           </Reveal>
         </div>
