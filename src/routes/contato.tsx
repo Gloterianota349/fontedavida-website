@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { CHURCH, SERVICES } from "@/lib/church";
+import { CHURCH, getServices } from "@/lib/church";
 import { submitContactMessage } from "@/lib/forms.functions";
 import { contactSchema } from "@/lib/form-schemas";
 import { Field, inputClass } from "@/components/site/Field";
@@ -127,7 +127,7 @@ function ContactPage() {
 
             <h3 className="mt-10 text-lg font-bold uppercase text-primary-deep">{t("Horários", "Service times")}</h3>
             <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-              {SERVICES.map((s) => (
+              {getServices(lang).map((s) => (
                 <li key={s.title}>
                   <span className="font-semibold text-foreground">
                     {s.day} — {s.time}
