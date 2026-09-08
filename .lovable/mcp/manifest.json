@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "sdk_version": "2.0.3",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "site-fonte-da-vida-toronto",
+      "version": "0.1.0",
+      "title": "Site Fonte da Vida Toronto"
+    },
+    "tools": [
+      {
+        "name": "church_info",
+        "title": "Informações da igreja",
+        "description": "Retorna as informações públicas da Igreja Apostólica Fonte da Vida Toronto: endereço, telefone, WhatsApp, e-mail, Instagram, YouTube e link do mapa.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "Agenda de cultos",
+        "description": "Lista os cultos e encontros semanais da igreja com dia, horário, nome e descrição. Use lang para escolher o idioma (pt ou en).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "lang": {
+              "default": "pt",
+              "description": "Idioma da resposta: pt ou en.",
+              "type": "string",
+              "enum": [
+                "pt",
+                "en"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_prayer_request",
+        "title": "Enviar pedido de oração",
+        "description": "Envia um pedido de oração para a equipe da igreja, igual ao formulário do site. Confirme os dados com a pessoa antes de enviar.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Nome de quem faz o pedido."
+            },
+            "email": {
+              "type": "string",
+              "description": "E-mail para contato."
+            },
+            "phone": {
+              "description": "Telefone (opcional).",
+              "type": "string"
+            },
+            "request": {
+              "type": "string",
+              "description": "O pedido de oração."
+            },
+            "isPrivate": {
+              "default": false,
+              "description": "Manter o pedido confidencial.",
+              "type": "boolean"
+            },
+            "urgency": {
+              "default": "normal",
+              "description": "Urgência do pedido.",
+              "type": "string",
+              "enum": [
+                "normal",
+                "urgente"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "email",
+            "request"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "submit_contact_message",
+        "title": "Enviar mensagem de contato",
+        "description": "Envia uma mensagem de contato para a igreja, igual ao formulário do site. Confirme os dados com a pessoa antes de enviar.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Nome de quem escreve."
+            },
+            "email": {
+              "type": "string",
+              "description": "E-mail para resposta."
+            },
+            "phone": {
+              "description": "Telefone (opcional).",
+              "type": "string"
+            },
+            "subject": {
+              "type": "string",
+              "description": "Assunto da mensagem."
+            },
+            "message": {
+              "type": "string",
+              "description": "Conteúdo da mensagem."
+            }
+          },
+          "required": [
+            "name",
+            "email",
+            "subject",
+            "message"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
