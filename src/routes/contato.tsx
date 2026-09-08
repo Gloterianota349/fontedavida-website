@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { CHURCH, SERVICES } from "@/lib/church";
+import { CHURCH, getServices } from "@/lib/church";
 import { submitContactMessage } from "@/lib/forms.functions";
 import { contactSchema } from "@/lib/form-schemas";
 import { Field, inputClass } from "@/components/site/Field";
