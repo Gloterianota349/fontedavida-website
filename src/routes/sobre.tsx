@@ -110,7 +110,7 @@ function AboutPage() {
         <div className="mx-auto max-w-6xl px-4 py-24">
           <p className="eyebrow text-accent">{t("Quem somos", "Who we are")}</p>
           <h1 className="mt-5 text-5xl font-bold uppercase text-primary-foreground md:text-6xl">
-            {t("Sobre nós", "About us")}
+            {t("Sobre a Fonte da Vida Toronto", "About Fonte da Vida Toronto")}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-accent">
             {t(
