@@ -349,9 +349,9 @@ function QuickInfo({
     <div className="flex gap-3 bg-secondary px-4 pb-5 pt-5">
       <span className="mt-0.5 text-primary">{icon}</span>
       <div>
-        <h2 className="meta text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
+        <p className="meta text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
           {title}
-        </h2>
+        </p>
         <p className="mt-2 text-sm text-foreground">{children}</p>
       </div>
     </div>
