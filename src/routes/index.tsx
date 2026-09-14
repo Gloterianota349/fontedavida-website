@@ -5,33 +5,45 @@ import { Reveal } from "@/components/site/Reveal";
 import { Carousel } from "@/components/site/Carousel";
 import { useI18n } from "@/lib/i18n";
 
+const SITE_URL = "https://fontedavida-toronto.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Igreja Apostólica Fonte da Vida - Toronto" },
+      { title: "Igreja Brasileira em Toronto | Fonte da Vida Toronto" },
       {
         name: "description",
         content:
-          "Igreja Apostólica Fonte da Vida em Toronto. Cultos em português em North York: domingo 10h, terça, quarta e sexta 19h30. Venha nos visitar.",
+          "Igreja Apostólica Fonte da Vida Toronto — uma igreja brasileira em North York, Toronto, com cultos em português e uma comunidade acolhedora para toda a família.",
       },
-      { property: "og:title", content: "Igreja Apostólica Fonte da Vida - Toronto" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Igreja Brasileira em Toronto | Fonte da Vida Toronto" },
       {
         property: "og:description",
-        content: "Uma igreja para toda a família em Toronto. Cultos em português. Você é nosso convidado.",
+        content:
+          "Igreja brasileira em North York, Toronto. Cultos em português: domingo 10h, terça, quarta e sexta 19h30. Você é nosso convidado.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Church",
+          "@id": `${SITE_URL}/#church`,
           name: CHURCH.name,
-          telephone: CHURCH.phone,
+          alternateName: CHURCH.shortName,
+          description:
+            "Igreja brasileira em North York, Toronto, com cultos em português para toda a família.",
+          url: `${SITE_URL}/`,
+          telephone: "+1-437-770-7282",
           email: CHURCH.email,
+          image: `${SITE_URL}/hero-culto.jpg`,
+          logo: `${SITE_URL}/favicon.png`,
+          knowsLanguage: ["pt-BR", "en"],
           address: {
             "@type": "PostalAddress",
             streetAddress: "1224 Lawrence Ave W",
@@ -40,7 +52,59 @@ export const Route = createFileRoute("/")({
             postalCode: "M6A 1E3",
             addressCountry: "CA",
           },
+          areaServed: [
+            { "@type": "City", name: "Toronto" },
+            { "@type": "Place", name: "North York" },
+          ],
+          hasMap: CHURCH.mapsDirections,
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "12:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "19:30", closes: "21:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "19:30", closes: "21:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "19:30", closes: "21:00" },
+          ],
+          event: [
+            {
+              "@type": "Event",
+              name: "Culto da Família",
+              description: "Culto em português para toda a família.",
+              startDate: "2026-01-04T10:00:00-05:00",
+              eventSchedule: {
+                "@type": "Schedule",
+                byDay: "https://schema.org/Sunday",
+                startTime: "10:00",
+                repeatFrequency: "P1W",
+              },
+              inLanguage: "pt-BR",
+              eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+              location: {
+                "@type": "Place",
+                name: CHURCH.name,
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "1224 Lawrence Ave W",
+                  addressLocality: "North York",
+                  addressRegion: "ON",
+                  postalCode: "M6A 1E3",
+                  addressCountry: "CA",
+                },
+              },
+              organizer: { "@id": `${SITE_URL}/#church` },
+            },
+          ],
           sameAs: [CHURCH.instagram, CHURCH.youtube],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: CHURCH.shortName,
+          url: `${SITE_URL}/`,
+          inLanguage: ["pt-BR", "en"],
+          publisher: { "@id": `${SITE_URL}/#church` },
         }),
       },
     ],

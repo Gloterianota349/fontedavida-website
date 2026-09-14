@@ -7,24 +7,27 @@ import { prayerSchema } from "@/lib/form-schemas";
 import { Field, inputClass } from "@/components/site/Field";
 import { useI18n } from "@/lib/i18n";
 
+const SITE_URL = "https://fontedavida-toronto.lovable.app";
+
 export const Route = createFileRoute("/pedido-de-oracao")({
   head: () => ({
     meta: [
-      { title: "Pedido de Oração — Fonte da Vida Toronto" },
+      { title: "Pedido de Oração | Fonte da Vida Toronto" },
       {
         name: "description",
         content:
-          "Envie seu pedido de oração para a equipe de intercessão da Fonte da Vida Toronto. Seu pedido pode ser mantido em sigilo.",
+          "Envie seu pedido de oração para a equipe de intercessão da Fonte da Vida Toronto, igreja brasileira em North York. Seu pedido pode ser mantido em sigilo.",
       },
-      { property: "og:title", content: "Pedido de Oração — Fonte da Vida Toronto" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Pedido de Oração | Fonte da Vida Toronto" },
       {
         property: "og:description",
         content: "Nossa equipe de intercessão quer orar por você. Envie seu pedido.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/pedido-de-oracao" },
+      { property: "og:url", content: `${SITE_URL}/pedido-de-oracao` },
     ],
-    links: [{ rel: "canonical", href: "/pedido-de-oracao" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/pedido-de-oracao` }],
   }),
   component: PrayerPage,
 });

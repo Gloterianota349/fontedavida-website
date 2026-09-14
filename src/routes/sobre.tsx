@@ -2,24 +2,41 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { useI18n } from "@/lib/i18n";
 
+const SITE_URL = "https://fontedavida-toronto.lovable.app";
+
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre a Fonte da Vida Toronto — Nossa história e fé" },
+      { title: "Sobre a Fonte da Vida | Igreja Brasileira em Toronto" },
       {
         name: "description",
         content:
-          "Conheça a história, a missão, a visão, os valores e a fé da Igreja Apostólica Fonte da Vida em Toronto.",
+          "Conheça a Igreja Apostólica Fonte da Vida Toronto, uma comunidade brasileira em North York com cultos em português e uma visão de acolhimento para toda a família.",
       },
-      { property: "og:title", content: "Sobre a Fonte da Vida Toronto" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Sobre a Fonte da Vida | Igreja Brasileira em Toronto" },
       {
         property: "og:description",
-        content: "Nossa história, missão, visão, valores e declaração de fé.",
+        content:
+          "Nossa história, missão, visão, valores e declaração de fé — uma comunidade brasileira em North York, Toronto.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/sobre" },
+      { property: "og:url", content: `${SITE_URL}/sobre` },
     ],
-    links: [{ rel: "canonical", href: "/sobre" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/sobre` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "Sobre a Igreja Apostólica Fonte da Vida Toronto",
+          url: `${SITE_URL}/sobre`,
+          inLanguage: "pt-BR",
+          about: { "@id": `${SITE_URL}/#church` },
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });

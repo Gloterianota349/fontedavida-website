@@ -8,24 +8,40 @@ import { contactSchema } from "@/lib/form-schemas";
 import { Field, inputClass } from "@/components/site/Field";
 import { useI18n } from "@/lib/i18n";
 
+const SITE_URL = "https://fontedavida-toronto.lovable.app";
+
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato — Fonte da Vida Toronto" },
+      { title: "Contato | Fonte da Vida Toronto" },
       {
         name: "description",
         content:
-          "Fale com a Igreja Fonte da Vida Toronto: endereço em North York, telefone, WhatsApp, e-mail e formulário de contato.",
+          "Entre em contato com a Igreja Apostólica Fonte da Vida Toronto. Estamos em North York e recebemos a comunidade brasileira para cultos em português.",
       },
-      { property: "og:title", content: "Contato — Fonte da Vida Toronto" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Contato | Fonte da Vida Toronto" },
       {
         property: "og:description",
-        content: "Endereço, telefone, e-mail e formulário para falar com a nossa equipe.",
+        content: "Endereço em North York, telefone, WhatsApp, e-mail e formulário para falar com a nossa equipe.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contato" },
+      { property: "og:url", content: `${SITE_URL}/contato` },
     ],
-    links: [{ rel: "canonical", href: "/contato" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contato` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contato — Igreja Apostólica Fonte da Vida Toronto",
+          url: `${SITE_URL}/contato`,
+          inLanguage: "pt-BR",
+          about: { "@id": `${SITE_URL}/#church` },
+        }),
+      },
+    ],
   }),
   component: ContactPage,
 });
