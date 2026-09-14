@@ -71,7 +71,7 @@ function Home() {
           <div className="md:col-span-8">
             <p className="eyebrow text-accent">{t("Igreja Apostólica · North York", "Apostolic Church · North York")}</p>
             <h1 className="mt-5 max-w-3xl text-5xl font-bold uppercase text-primary-foreground md:text-7xl">
-              {t("Bem-vindo à Fonte da Vida Toronto", "Welcome to Fonte da Vida Toronto")}
+              {t("Igreja Apostólica Fonte da Vida em Toronto", "Apostolic Church Fonte da Vida in Toronto")}
             </h1>
             <p className="mt-6 max-w-lg text-lg text-accent">
               {t("Uma igreja para toda a família. Cultos em português, no coração de North York.", "A church for the whole family. Services in Portuguese, in the heart of North York.")}
