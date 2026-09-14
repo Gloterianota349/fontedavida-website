@@ -3,24 +3,55 @@ import { CHURCH, getServices } from "@/lib/church";
 import { Carousel } from "@/components/site/Carousel";
 import { useI18n } from "@/lib/i18n";
 
+const SITE_URL = "https://fontedavida-toronto.lovable.app";
+
 export const Route = createFileRoute("/visite-nos")({
   head: () => ({
     meta: [
-      { title: "Visite-nos — Fonte da Vida Toronto" },
+      { title: "Visite a Fonte da Vida | Igreja Brasileira em Toronto" },
       {
         name: "description",
         content:
-          "Tudo que você precisa saber antes da sua primeira visita à Fonte da Vida Toronto: endereço, horários, como chegar, o que esperar e perguntas frequentes.",
+          "Visite a Fonte da Vida Toronto em North York. Confira endereço, horários dos cultos em português, estacionamento e informações para quem está chegando pela primeira vez.",
       },
-      { property: "og:title", content: "Visite-nos — Fonte da Vida Toronto" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Visite a Fonte da Vida | Igreja Brasileira em Toronto" },
       {
         property: "og:description",
-        content: "Endereço, horários, como chegar e o que esperar da sua primeira visita.",
+        content:
+          "Endereço em North York, horários dos cultos em português, estacionamento, transporte público e o que esperar da sua primeira visita.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/visite-nos" },
+      { property: "og:url", content: `${SITE_URL}/visite-nos` },
     ],
-    links: [{ rel: "canonical", href: "/visite-nos" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/visite-nos` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Place",
+          name: CHURCH.name,
+          url: `${SITE_URL}/visite-nos`,
+          telephone: "+1-437-770-7282",
+          hasMap: CHURCH.mapsDirections,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "1224 Lawrence Ave W",
+            addressLocality: "North York",
+            addressRegion: "ON",
+            postalCode: "M6A 1E3",
+            addressCountry: "CA",
+          },
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "12:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "19:30", closes: "21:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "19:30", closes: "21:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "19:30", closes: "21:00" },
+          ],
+        }),
+      },
+    ],
   }),
   component: VisitPage,
 });
