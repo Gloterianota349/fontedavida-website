@@ -83,7 +83,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Igreja Apostólica Fonte da Vida Toronto" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:locale:alternate", content: "en_CA" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow" },
       {
         name: "google-site-verification",
         content: "Vlwybw7Yhilafr6IQP6mB3Nowz5ESNg4mmhYNMTp8Jw",
