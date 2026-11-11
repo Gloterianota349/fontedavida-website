@@ -66,7 +66,7 @@ Algumas práticas importantes para a manutenção do projeto:
 - Revisar as políticas de Row Level Security (RLS), especialmente para pedidos de oração e mensagens de contato.
 - Manter as dependências atualizadas.
 
---
+---
 
 ## 👨‍💻 Autor
 
@@ -77,6 +77,6 @@ Algumas práticas importantes para a manutenção do projeto:
 ---
 
 <p align="center">
-  Desenvolvido com dedicação para a comunidade da <strong>Igreja Apostólica Fonte da Vida Toronto</strong>. ❤️
+  Desenvolvido para a comunidade da <strong>Igreja Apostólica Fonte da Vida Toronto</strong> ❤️
 </p>
 
